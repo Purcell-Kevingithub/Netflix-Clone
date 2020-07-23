@@ -1,0 +1,149 @@
+/* #### Whole Component  ####*/
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: white;
+  font-size: 0.8em;
+}
+/* ### App Component### */
+
+.App {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: auto;
+}
+
+/* #### Header Component CSS  #### */
+
+.App-header {
+  text-align: center;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  height: 280px !important;
+}
+
+.App-header h2 {
+  margin: 0;
+}
+
+.App-intro {
+  font-size: large;
+} 
+
+/* #### Movie Component CSS #### */
+
+.movie-grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(20, auto);
+  margin-top: 2em;
+}
+
+.movie {
+  padding: 0px 5px;
+}
+
+.movie img{
+  margin-top: 1em;
+}
+.movie h6, p {
+  margin: 0px;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+}
+
+/* #### Search Component CSS #### */
+
+.search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+input[type="submit"] {
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+
+input[type="submit"]:hover {
+  background-color: #282c34;
+  color: antiquewhite;
+}
+
+
+.search > input[type="text"]{
+  width: 40%;
+  min-width: 170px;
+}
+
+
+/* Slider Css */
+.Slideyoparent {
+  background-color: #3498db;
+  width:90vw;
+  margin: auto;
+}
+
+.Slideyo {
+  font-family: sans-serif;
+  padding: 10px 30px;
+}
+
+.Slideyo > div {
+  background-color: #5c2e91;
+  background-color: #fff;
+  color: #fff;
+  color: #3498db;
+  text-align: center;
+}
+
+.Slideyo img {
+  height: 500px;
+}
+
+/* Hook practice */
+
+
+
+
+/* #### Media Queries ####*/
+
+
+/* Movie Component Css */
+
+@media screen and (min-width: 694px) and (max-width: 915px) {
+  .movie {
+    max-width: 33%;
+  }
+}
+
+@media screen and (min-width: 652px) and (max-width: 693px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .movie {
+    max-width: 100%;
+    margin: auto;
+  }
+}
