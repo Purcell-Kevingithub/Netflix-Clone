@@ -10,8 +10,8 @@ import Slider from "react-slick";
 const MySlider = (props) => {
   const renderSlides = () =>
       props.movieArr.map((movie, index) => (
-      <div>
-        <Movie key={`${index}-${movie.id}`} movie={movie} num={`${index}-${movie.id}`} />
+      <div key={`${index}-${movie.id}`}>
+        <Movie movie={movie} num={`${index}-${movie.id}`} />
       </div>
     ));
 

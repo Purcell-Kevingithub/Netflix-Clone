@@ -5,7 +5,6 @@ const Detail = (props) => {
     const currentMovie = props.location.state.movie; 
     const currentId = props.location.state.movie.id;
     const [trailer, trailerDispatch] = useReducer(movieDetailReducer, initDetail);
-    console.log(trailer.details)
     
   // not sure if id should be passed as argument to useeffect or fetchtrailer
     useEffect(() => {
@@ -27,7 +26,8 @@ const Detail = (props) => {
                   error: 'something went wrong'
                 });
             }
-          } catch (error) {
+          } 
+          catch (error) {
             console.log(error)
           }
         }
