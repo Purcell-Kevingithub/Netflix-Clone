@@ -2,17 +2,19 @@ import SearchResults from './SearchResults';
 import Search from "./Search";
 import Myslider from './Carousel';
 import React, { useReducer, useEffect } from "react";
-import TMDB_KEY from '../apis/Apikey';
-import  { MOVIE_POPULAR_URL, COMEDY_POPULAR_URL } from "../apis/endPoints";
+import  { MOVIE_POPULAR_URL, COMEDY_POPULAR_URL, HORRORMYSTERY_POPULAR_URL, DOCUMENTARY_POPULAR_URL, ROMANCE_POPULAR_URL, SCIFI_POPULAR_URL } from "../apis/endPoints";
 import * as Reducers from '../reducers/Reducers';
 
 const Genres = () => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request. 
   // This is a more complicated state object.
+  const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
   const [state, dispatch] = useReducer(Reducers.movieReducer, Reducers.initialState);
   const [comedyState, comedydispatch] = useReducer(Reducers.comedyReducer, Reducers.initComedy);
   const [hmState, horrorMysterydispatch] = useReducer(Reducers.hmReducer, Reducers.inithm);
-  const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
+  const [documentaryState, documentaryDispatch] = useReducer(Reducers.documentaryReducer, Reducers.initDocumentary)
+  const [romanceState, romanceDispatch] = useReducer(Reducers.romanceReducer, Reducers.initRomance)
+  const [scifiState, ScifiDispatch] = useReducer(Reducers.scifiReducer, Reducers.initScifi)
   // This mimics life cycle componentDidMount and componentDidUpdate. We can make api requests and then dispatch 
   // state from reducers. This only dispatches for success and brings back the api request from the search typed.
     useEffect(() => {
@@ -34,10 +36,37 @@ const Genres = () => {
             });
         })
 
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27,9648`)
+        fetch(HORRORMYSTERY_POPULAR_URL)
           .then(response => response.json())
           .then(jsonResponse => {
           horrorMysterydispatch({
+                type: "SEARCH_MOVIES_SUCCESS",
+                payload: jsonResponse.results
+            });
+          })
+
+        fetch(DOCUMENTARY_POPULAR_URL)
+          .then(response => response.json())
+          .then(jsonResponse => {
+          documentaryDispatch({
+                type: "SEARCH_MOVIES_SUCCESS",
+                payload: jsonResponse.results
+            });
+          })
+
+        fetch(ROMANCE_POPULAR_URL)
+          .then(response => response.json())
+          .then(jsonResponse => {
+          romanceDispatch({
+                type: "SEARCH_MOVIES_SUCCESS",
+                payload: jsonResponse.results
+            });
+          })
+
+        fetch(SCIFI_POPULAR_URL)
+          .then(response => response.json())
+          .then(jsonResponse => {
+          ScifiDispatch({
                 type: "SEARCH_MOVIES_SUCCESS",
                 payload: jsonResponse.results
             });
@@ -107,9 +136,23 @@ const Genres = () => {
               {renderMovies(hmState)}     
             </div>
             <div>
-              <h1>Comedies</h1>
+              <h1>Comedy</h1>
               {renderMovies(comedyState)}
             </div>
+
+            <div>
+              <h1>Documentary</h1>
+              {renderMovies(documentaryState)}
+            </div>
+            <div>
+              <h1>Romance</h1>
+              {renderMovies(romanceState)}
+            </div>
+            <div>
+              <h1>Science Fiction</h1>
+              {renderMovies(scifiState)}
+            </div>
+
         </div>
     );
 

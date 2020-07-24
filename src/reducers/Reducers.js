@@ -11,8 +11,23 @@ export const initComedy = {
   errorMessage: null
 };
   
-
 export const inithm = {
+  loading: true,
+  movies: [],
+  errorMessage: null
+};
+
+export const initDocumentary = {
+  loading: true,
+  movies: [],
+  errorMessage: null
+};
+export const initRomance = {
+  loading: true,
+  movies: [],
+  errorMessage: null
+};
+export const initScifi = {
   loading: true,
   movies: [],
   errorMessage: null
@@ -29,6 +44,8 @@ export const initSearch = {
   search: [],
   errorMessage: null
 };
+
+
   
   // Reducer updates state based on switch case. Movies_Request updates state for loading, Movies_Success updates movies aray with data, and
   // Movies_Failure updates errorMessage.
@@ -107,6 +124,81 @@ export const comedyReducer = (state, action) => {
         return state;
     }
   };
+
+  export const documentaryReducer = (state, action) => {
+    switch (action.type) {
+      case "SEARCH_MOVIES_REQUEST":
+        return {
+          ...state,
+          loading: true,
+          errorMessage: null
+        };
+      case "SEARCH_MOVIES_SUCCESS":
+        return {
+          ...state,
+          loading: false,
+          movies: action.payload
+        };
+      case "SEARCH_MOVIES_FAILURE":
+        return {
+          ...state,
+          loading: false,
+          errorMessage: action.error
+        };
+      default:
+        return state;
+    }
+  };
+  export const romanceReducer = (state, action) => {
+    switch (action.type) {
+      case "SEARCH_MOVIES_REQUEST":
+        return {
+          ...state,
+          loading: true,
+          errorMessage: null
+        };
+      case "SEARCH_MOVIES_SUCCESS":
+        return {
+          ...state,
+          loading: false,
+          movies: action.payload
+        };
+      case "SEARCH_MOVIES_FAILURE":
+        return {
+          ...state,
+          loading: false,
+          errorMessage: action.error
+        };
+      default:
+        return state;
+    }
+  };
+  export const scifiReducer = (state, action) => {
+    switch (action.type) {
+      case "SEARCH_MOVIES_REQUEST":
+        return {
+          ...state,
+          loading: true,
+          errorMessage: null
+        };
+      case "SEARCH_MOVIES_SUCCESS":
+        return {
+          ...state,
+          loading: false,
+          movies: action.payload
+        };
+      case "SEARCH_MOVIES_FAILURE":
+        return {
+          ...state,
+          loading: false,
+          errorMessage: action.error
+        };
+      default:
+        return state;
+    }
+  };
+
+
 
   export const movieDetailReducer = (state, action) => {
     switch (action.type) {

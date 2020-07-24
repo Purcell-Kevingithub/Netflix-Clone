@@ -1,14 +1,15 @@
 import TMDB_KEY from './Apikey';
 
-export const MOVIE_API_URL = `https://api.themoviedb.org/3/movie/420817?api_key=${TMDB_KEY}&language=en-US`;
-
-
 export const MOVIE_POPULAR_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_KEY}&language=en-US&page=1&video=true`;
-
-
 export const COMEDY_POPULAR_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35`;
+export const HORRORMYSTERY_POPULAR_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=27,9648`;
+export const DOCUMENTARY_POPULAR_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=99`;
+export const ROMANCE_POPULAR_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=10749`;
+export const SCIFI_POPULAR_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${TMDB_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=878`;
 
 
+
+// export const MOVIE_API_URL = `https://api.themoviedb.org/3/movie/420817?api_key=${TMDB_KEY}&language=en-US`;
 // 0: {id: 28, name: "Action"}
 // 1: {id: 12, name: "Adventure"}
 // 2: {id: 16, name: "Animation"}
