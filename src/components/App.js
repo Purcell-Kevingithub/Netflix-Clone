@@ -11,14 +11,12 @@ const App = () => {
     return (
     <div className="App grid">
       <Router>
-        
-          {/* <Route path="/"   component={Header}/> */}
-          <Route path="/"   component={Genres}/>
-          <Switch>
-          <Route path="/details" exact component={Detail} />
-          
-          <Route path="/404" component={NoMatchPage} />
-          <Redirect to="/404" />
+      <Route path='/' component={Header}/>
+        <Switch>
+        <Route path="/" exact component={Genres}/>
+        <Route path="/details" exact component={Detail} />
+        <Route path="/404" component={NoMatchPage} />
+        <Redirect to="/404" />
         </Switch>
       </Router>
     </div>

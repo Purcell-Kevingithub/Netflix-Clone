@@ -1,3 +1,4 @@
+import TMDB_KEY from '../apis/Apikey';
 import SearchResults from './SearchResults';
 import Search from "./Search";
 import Myslider from './Carousel';
@@ -83,7 +84,7 @@ const Genres = () => {
       	type: "SEARCH_MOVIES_REQUEST"
       });
       // Here the value is passed as argument to this function from the search components is fetched.
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=d80b050f4d8550ccb422ef14516b40e8&language=en-US&query=${searchValue}&page=1&include_adult=false`)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`)
         .then(response => {
           if(response.ok === true){
             return response.json();

@@ -1,5 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import { movieDetailReducer, initDetail} from '../reducers/Reducers';
+import placeholder from '../images/comingsoon.png';
+import TMDB_KEY from "../apis/Apikey";
 
 const Detail = (props) => {
     const currentMovie = props.location.state.movie; 
@@ -11,7 +13,7 @@ const Detail = (props) => {
         async function fetchTrailer() {
           try {
             const response = await fetch(
-              `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=d80b050f4d8550ccb422ef14516b40e8&language=en-US`
+              `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${TMDB_KEY}&language=en-US`
             );
             const json = await response.json();
 
@@ -36,10 +38,8 @@ const Detail = (props) => {
       }, [currentId]);
 
 
-    const DEFAULT_PLACEHOLDER_IMAGE = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
-    const poster =
-    currentMovie.Poster === "N/A" ? DEFAULT_PLACEHOLDER_IMAGE : `https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`;
-    
+    let poster =
+    currentMovie.poster_path === null ? placeholder : `https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`;
 //  this function will display nothing when trailer state is empty and then it will display an 
 // iframe once data is retrieved bc mapping will not cause an error vs directly accesing an index.
     const TrailersDisplay = () => {
