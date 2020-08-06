@@ -2,6 +2,7 @@ import React, { useReducer, useEffect } from "react";
 import { movieDetailReducer, initDetail} from '../reducers/Reducers';
 import placeholder from '../images/comingsoon.png';
 import TMDB_KEY from "../apis/Apikey";
+import "../css/movieDetails.css";
 
 const Detail = (props) => {
     const currentMovie = props.location.state.movie; 
@@ -67,29 +68,26 @@ const Detail = (props) => {
     
       const renderDetails = () => {
         return ( 
-            <div>
-            {/* If loading and no error show loading message */}
-            {trailer.loading && !trailer.errorMessage 
-            ? 
-            (<span>loading... </span>) 
-            : 
-            // if there is an error messge display it
-            trailer.errorMessage ? 
-            (<div className="errorMessage">{trailer.errorMessage}</div>) 
-            :  
-            (// This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-            <div>
-                <h6>{currentMovie.original_title}</h6>
-                <img
-                    alt={`The movie titled: ${currentMovie.original_title}`}
-                    src={poster}
-                    />
+            <div className='details-container'>
+                {/* If loading and no error show loading message */}
+                {trailer.loading && !trailer.errorMessage 
+                ? 
+                (<span>loading... </span>) 
+                : 
+                // if there is an error messge display it
+                trailer.errorMessage ? 
+                (<div className="errorMessage">{trailer.errorMessage}</div>) 
+                :  
+                (// This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
+                <div>
+                  <img src={poster} alt={currentMovie.original_title}/>
+                    <h6>{currentMovie.original_title}</h6>
                     <p>{currentMovie.release_date}</p>
                     <p>{currentMovie.overview}</p>
                     {TrailersDisplay()}
-            </div>
-            ) 
-            }
+                </div>
+                ) 
+                }
             </div>
         )
       }

@@ -20,8 +20,6 @@ const Movie = ({ movie }) => {
             alt={`The movie titled: ${movie.original_title}`}
             src={poster}
           />
-  
-        <p>({movie.release_date})</p>
         </Link>
       </div>
     </div>

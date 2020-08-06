@@ -3,37 +3,57 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0px;
+}
+
 a {
   color: white;
   font-size: 0.8em;
 }
+
+button {
+  background-color: #e50914;
+}
+
+h1{
+  color:#e50914;
+}
+
 /* ### App Component### */
 
 .App {
   display: grid;
-  grid-template-columns: 1;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
 }
+
 
 /* #### Header Component CSS  #### */
 
 .App-header {
   text-align: center;
   background-color: #282c34;
-  font-size: calc(10px + 2vmin);
   color: white;
   padding-bottom: 10px;
   padding-top: 20px;
-  height: 280px !important;
+  height: 100px;
+  position: relative;
 }
 
 .App-header h2 {
   margin: 0;
 }
 
-.App-intro {
-  font-size: large;
-} 
+.App-header img {
+  height: 60px;
+  width: auto;
+  left: 45%;
+  position: absolute;
+}
+
+
+/* fontFamily: "Lucida Console */
 
 /* #### Movie Component CSS #### */
 
@@ -41,16 +61,18 @@ a {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(20, auto);
-  margin-top: 2em;
+  margin: 2em 4em 0em 4em;
+
 }
 
 .movie {
-  padding: 0px 5px;
+
 }
 
 .movie img{
-  margin-top: 1em;
+  margin: 0px 0px;
 }
+
 .movie h6, p {
   margin: 0px;
 }
@@ -61,66 +83,80 @@ a {
   color: rgb(161, 15, 15);
 }
 
+.genre-title {
+  margin-left: 2em;
+}
 /* #### Search Component CSS #### */
 
+.search-container{
+  position: relative;
+  display: block;
+  min-height: 50px
+}
+
 .search {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  position: absolute;
+  left: 41%;
   margin-top: 10px;
 }
 
 
+input[type="text"] {
+  width: 100px;
+}
+
 input[type="submit"] {
   padding: 5px;
   background-color: transparent;
-  color: black;
-  border: 1px solid black;
+  color: white;
+  border: 1px solid white;
   width: 80px;
   margin-left: 5px;
   cursor: pointer;
+  min-height: 35px;
 }
 
 
 input[type="submit"]:hover {
-  background-color: #282c34;
+  background-color: #e50914;
   color: antiquewhite;
 }
 
 
 .search > input[type="text"]{
-  width: 40%;
-  min-width: 170px;
+  min-width: 250px;
+  min-height: 35px;
 }
 
 
 /* Slider Css */
-.Slideyoparent {
-  background-color: #3498db;
+.Slider-container {
   width:90vw;
-  margin: auto;
 }
 
-.Slideyo {
+.Slides {
   font-family: sans-serif;
-  padding: 10px 30px;
 }
 
-.Slideyo > div {
-  background-color: #5c2e91;
+/* .Slides > div { */
+  /* background-color: #5c2e91;
   background-color: #fff;
   color: #fff;
   color: #3498db;
-  text-align: center;
-}
+  text-align: center; */
+/* } */
 
-.Slideyo img {
-  height: 500px;
+.Slides img {
+  max-height: 500px;
+  min-width: 200px;
 }
 
 /* Hook practice */
 
+/* Carousel container */
+.genres{
+  background-color: #282c34
+}
 
 
 
@@ -133,6 +169,8 @@ input[type="submit"]:hover {
   .movie {
     max-width: 33%;
   }
+
+  
 }
 
 @media screen and (min-width: 652px) and (max-width: 693px) {
@@ -146,4 +184,13 @@ input[type="submit"]:hover {
     max-width: 100%;
     margin: auto;
   }
+
+  .search {
+    margin-top: 10px;
+  }
+
+  .App-header img {
+  /* left: 35%; */
+
+}
 }

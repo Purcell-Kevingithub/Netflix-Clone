@@ -125,32 +125,32 @@ const Genres = () => {
      }
 
     return (
-        <div>
+        <div className="genres">
             <Search search={search} />
             <SearchResults results={searchState}/>
             <div>
-              <h1>New Releases</h1>
+              <h1 className="genre-title">New Releases</h1>
               {renderMovies(state)}
             </div>
             <div>
-              <h1>Horror</h1>
+              <h1 className="genre-title">Horror</h1>
               {renderMovies(hmState)}     
             </div>
             <div>
-              <h1>Comedy</h1>
+              <h1 className="genre-title">Comedy</h1>
               {renderMovies(comedyState)}
             </div>
 
             <div>
-              <h1>Documentary</h1>
+              <h1 className="genre-title" >Documentary</h1>
               {renderMovies(documentaryState)}
             </div>
             <div>
-              <h1>Romance</h1>
+              <h1 className="genre-title">Romance</h1>
               {renderMovies(romanceState)}
             </div>
             <div>
-              <h1>Science Fiction</h1>
+              <h1 className="genre-title">Science Fiction</h1>
               {renderMovies(scifiState)}
             </div>
 

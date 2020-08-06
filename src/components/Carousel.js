@@ -8,6 +8,13 @@ import Movie from "./Movie";
 import Slider from "react-slick";
 
 const MySlider = (props) => {
+
+  const settings = {
+    dots: false,
+    slidesToShow: 5,
+    slidesToScroll: 3,
+  }
+
   const renderSlides = () =>
       props.movieArr.map((movie, index) => (
       <div key={`${index}-${movie.id}`}>
@@ -16,9 +23,9 @@ const MySlider = (props) => {
     ));
 
   return (
-    <div className="Slideyoparent">
-      <div className="Slideyo">
-        <Slider dots={false} slidesToShow={6} slidesToScroll={4}>{renderSlides()}</Slider>
+    <div className="Slider-container">
+      <div className="Slides">
+        <Slider {...settings}>{renderSlides()}</Slider>
       </div>
     </div>
   );

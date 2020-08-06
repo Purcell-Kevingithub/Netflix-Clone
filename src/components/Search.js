@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
   
@@ -16,17 +15,18 @@ const Search = (props) => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
+  
   }
 
   return (
-    <div>
+    <div className="search-container">
       <form className="search" onSubmit={callSearchFunction}>
         <input
           value={searchValue}
           onChange={handleSearchInputChanges}
           type="text"
         />
-        <input value="search" type="submit"/>
+        <input value="Search" type="submit"/>
       </form>
     </div>
     );

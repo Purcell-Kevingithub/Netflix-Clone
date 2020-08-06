@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import netflix from '../images/netflix.png';
 
 const Header = () => {
   return (
     <div>
       <header className="App-header">
-      <h3>This is the header</h3>
-        <p style={{fontFamily: "Lucida Console"}}>here is the drop down menu</p>
-        <p className="App-intro">Come see what's new and exciting.</p>
-        <Link to='/'> Home Text </Link><br/>  
+      <Link to='/'><img alt='poster' src={netflix}/></Link> 
       </header>
     </div>
   );
