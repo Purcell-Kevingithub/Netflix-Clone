@@ -1,8 +1,9 @@
 import React, { useReducer, useEffect } from "react";
 import { movieDetailReducer, initDetail} from '../reducers/Reducers';
+import { Link } from 'react-router-dom';
 import placeholder from '../images/comingsoon.png';
 import TMDB_KEY from "../apis/Apikey";
-import "../css/movieDetails.css";
+import "../css/App.css";
 
 const Detail = (props) => {
     const currentMovie = props.location.state.movie; 
@@ -45,7 +46,7 @@ const Detail = (props) => {
 // iframe once data is retrieved bc mapping will not cause an error vs directly accesing an index.
     const TrailersDisplay = () => {
       return (
-        <div>
+        <div className="trailer">
           {trailer.details.map((video) => {
             if (!video) {
               return null;
@@ -68,7 +69,7 @@ const Detail = (props) => {
     
       const renderDetails = () => {
         return ( 
-            <div className='details-container'>
+            <div>
                 {/* If loading and no error show loading message */}
                 {trailer.loading && !trailer.errorMessage 
                 ? 
@@ -79,12 +80,24 @@ const Detail = (props) => {
                 (<div className="errorMessage">{trailer.errorMessage}</div>) 
                 :  
                 (// This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-                <div>
-                  <img src={poster} alt={currentMovie.original_title}/>
-                    <h6>{currentMovie.original_title}</h6>
-                    <p>{currentMovie.release_date}</p>
-                    <p>{currentMovie.overview}</p>
+                <div className='details-container'>
+                  <div>
+                    <img src={poster} alt={currentMovie.original_title} className="trailer-image"/>
+                  </div>
+                  <div>
                     {TrailersDisplay()}
+                    <div>
+                      <h1 className="float-left">{currentMovie.original_title}</h1>
+                      <h1 className="float-right">{currentMovie.release_date}</h1>
+                    </div>
+                    <div className="clear">
+                      <p>{currentMovie.overview}</p>
+                    </div>
+                    <div className="play-button-container">
+                      <button className="play-button">Play Movie</button>
+                      <Link to='/'><p className="return">Return Home</p></Link>  
+                    </div>
+                  </div>
                 </div>
                 ) 
                 }
