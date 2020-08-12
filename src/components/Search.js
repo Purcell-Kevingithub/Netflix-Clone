@@ -22,12 +22,14 @@ const Search = (props) => {
     <div className="search-container">
       <form className="search" onSubmit={callSearchFunction}>
         <input
+          placeholder="Search Movies..."
           value={searchValue}
           onChange={handleSearchInputChanges}
           type="text"
+          required
         />
-        <input value="Search" type="submit"/>
-      </form>
+        <button>Search</button>
+      </form>   
     </div>
     );
 }

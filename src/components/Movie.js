@@ -9,17 +9,19 @@ const Movie = ({ movie }) => {
     movie.poster_path === null ? placeholder : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   return (
     <div className="movie">
-      <div>
+      <div className="hover01">
         <Link 
         to={{
           pathname: "/details",
           state: { movie }
         }}
         >
+          <figure>
           <img
             alt={`The movie titled: ${movie.original_title}`}
             src={poster}
           />
+          </figure>
         </Link>
       </div>
     </div>
@@ -27,3 +29,4 @@ const Movie = ({ movie }) => {
 };
 
 export default Movie;
+
