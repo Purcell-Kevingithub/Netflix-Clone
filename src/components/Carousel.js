@@ -10,10 +10,11 @@ import Slider from "react-slick";
 const MySlider = (props) => {
 
   const settings = {
-    dots: false,
     slidesToShow: 5,
     slidesToScroll: 3,
+    infinite: false,
   }
+
 
   const renderSlides = () =>
       props.movieArr.map((movie, index) => (

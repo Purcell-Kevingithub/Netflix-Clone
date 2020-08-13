@@ -40,24 +40,18 @@ button {
 /* #### Header Component CSS  #### */
 
 .App-header {
-  text-align: center;
-  background-color: #282c34;
-  color: white;
-  padding-bottom: 10px;
-  padding-top: 20px;
-  height: 100px;
-  position: relative;
-}
-
-.App-header h2 {
-  margin: 0;
+  background-color: #030303;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
 }
 
 .App-header img {
-  height: 60px;
+  height: 70px;
   width: auto;
   left: 45%;
-  position: absolute;
 }
 
 
@@ -100,9 +94,7 @@ button {
   color: rgb(161, 15, 15);
 }
 
-.genre-title {
-  margin-left: 2em;
-}
+
 
 
 
@@ -278,6 +270,7 @@ iframe {
 
 input[type="text"] {
   width: 100px;
+  position: relative;
 }
 
 .search > input[type="text"]{
@@ -329,10 +322,18 @@ figure {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.genre-title {
+  margin-left: 2em;
+}
+
+.first-genre {
+  padding-top: 3em; 
+}
 
 
-
-
+.last-genre {
+  padding-bottom: 3em;
+}
 
 
 

@@ -7,6 +7,7 @@ import placeholder from '../images/comingsoon.png';
 const Movie = ({ movie }) => {
   const poster =
     movie.poster_path === null ? placeholder : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+    console.log(movie)
   return (
     <div className="movie">
       <div className="hover01">

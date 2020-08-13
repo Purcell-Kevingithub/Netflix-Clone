@@ -1,15 +1,12 @@
-import TMDB_KEY from '../apis/Apikey';
 import SearchResults from './SearchResults';
-import Search from "./Search";
 import Myslider from './Carousel';
 import React, { useReducer, useEffect } from "react";
 import  { MOVIE_POPULAR_URL, COMEDY_POPULAR_URL, HORRORMYSTERY_POPULAR_URL, DOCUMENTARY_POPULAR_URL, ROMANCE_POPULAR_URL, SCIFI_POPULAR_URL } from "../apis/endPoints";
 import * as Reducers from '../reducers/Reducers';
 
-const Genres = () => {
+const Genres = (props) => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request. 
   // This is a more complicated state object.
-  const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
   const [state, dispatch] = useReducer(Reducers.movieReducer, Reducers.initialState);
   const [comedyState, comedydispatch] = useReducer(Reducers.comedyReducer, Reducers.initComedy);
   const [hmState, horrorMysterydispatch] = useReducer(Reducers.hmReducer, Reducers.inithm);
@@ -76,33 +73,6 @@ const Genres = () => {
         // useeffect acts like componenetdidmount. It will continue to make requests if data passed into array is not equivalent to previous request. 
   	}, []);
 
-    // This search function is passed down as a prop to the child components search. This function is then ran in 
-    // search component based on the value from user typing.
-    const search = searchValue => {
-      // Dispatch returns the load state objects here. send search request to update state to fetching
-    	searchDispatch({
-      	type: "SEARCH_MOVIES_REQUEST"
-      });
-      // Here the value is passed as argument to this function from the search components is fetched.
-        fetch(`https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`)
-        .then(response => {
-          if(response.ok === true){
-            return response.json();
-          } else {
-            dispatch({
-                    type: "SEARCH_MOVIES_FAILURE",
-                    error: response
-              	});
-          }   
-        })
-      	.then(jsonResponse => {
-          // if Json response is true then the response is updated to the success case on reducer.
-          searchDispatch({
-            type: 'SEARCH_MOVIES_SUCCESS',
-            payload: jsonResponse.results
-          })
-      	});
-    };
 
     // the movies errormsg and loading props are destructed from the current state and then passed as props below
     const renderMovies = (currentState) => {
@@ -126,9 +96,8 @@ const Genres = () => {
 
     return (
         <div className="genres">
-            <Search search={search} />
-            <SearchResults results={searchState}/>
-            <div>
+            <SearchResults results={props.searchState}/>
+            <div className="first-genre">
               <h1 className="genre-title">New Releases</h1>
               {renderMovies(state)}
             </div>
@@ -149,7 +118,7 @@ const Genres = () => {
               <h1 className="genre-title">Romance</h1>
               {renderMovies(romanceState)}
             </div>
-            <div>
+            <div className="last-genre">
               <h1 className="genre-title">Science Fiction</h1>
               {renderMovies(scifiState)}
             </div>
