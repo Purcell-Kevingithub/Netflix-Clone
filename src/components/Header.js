@@ -6,8 +6,8 @@ import Search from "./Search";
 const Header = (props) => {
   return (
     <div className="App-header">
-    <Link to='/'><img alt='poster' src={netflix}/></Link> 
-    <Search search={props.search} />
+    <Link to='/'><img alt='poster' src={netflix} onClick={props.displayFalse}/></Link> 
+    <Search search={props.search} display={props.displayTrue} />
     </div>
   );
 };

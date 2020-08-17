@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import TMDB_KEY from '../apis/Apikey';
 import "../css/App.css";
 import Header from "./Header";
@@ -11,6 +11,16 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 // This is the main functional component where everything is attached. 
 const App = () => {
   const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
+  const [searchDisplay, setSearchDisplay] = useState(true);
+
+  const changeDisplayFalse = () => {
+    return setSearchDisplay(false);
+  }
+
+  const changeDisplayTrue = () => {
+    return setSearchDisplay(true);
+  }
+
   // This search function is passed down as a prop to the child components search. This function is then ran in 
     // search component based on the value from user typing.
     const search = searchValue => {
@@ -46,7 +56,7 @@ const App = () => {
         <Route
           path='/'
           render={(props) => (
-            <Header {...props} search={search}/>
+            <Header {...props} search={search} displayFalse={changeDisplayFalse} displayTrue={changeDisplayTrue}/>
           )}
         />
         <Switch>  
@@ -54,7 +64,7 @@ const App = () => {
           exact
           path='/'
           render={(props) => (
-            <Genres {...props} searchState={searchState} />
+            <Genres {...props} searchState={searchState} display={searchDisplay} />
           )}
         />
         <Route path="/details" exact component={Detail} />

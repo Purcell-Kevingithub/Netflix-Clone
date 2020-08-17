@@ -28,7 +28,7 @@ const Search = (props) => {
           type="text"
           required
         />
-        <button>Search</button>
+        <button onClick={props.display}>Search</button>
       </form>   
     </div>
     );

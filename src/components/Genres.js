@@ -96,7 +96,7 @@ const Genres = (props) => {
 
     return (
         <div className="genres">
-            <SearchResults results={props.searchState}/>
+            <SearchResults results={props.searchState} display={props.display}/>
             <div className="first-genre">
               <h1 className="genre-title">New Releases</h1>
               {renderMovies(state)}
