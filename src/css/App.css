@@ -337,10 +337,34 @@ figure {
 
 
 
+/* No Match page */
+.no-match{
+  background-color: #282c34;
+  color: white;
+  height: 100vh;
+  text-align: center;
+  font-size: 2em;
+}
 
+.no-match p {
+  width: 20%;
+  font-style: italic;
+  color:#e50914;
+  font-size: 1.2em;
+  margin-top: 1.2em;
+  float: right;
+}
 
-/* #### Media Queries ####*/
+.no-match p:hover {
+  color: antiquewhite;
+  cursor: pointer;
+}
 
+.no-match h3 {
+  padding-top: 20%;
+}
+
+/* #### ------------Media Queries -------------####*/
 
 /* Movie Component Css */
 
