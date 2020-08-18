@@ -68,18 +68,6 @@ button {
 
 }
 
-/* .movie {
-
-} */
-
-/* .movie img{
-
-} */
-
-/* .movie img:hover{
-
-} */
-
 
 .movie h6, p {
   margin: 0px;
@@ -90,11 +78,6 @@ button {
   font-weight: bold;
   color: rgb(161, 15, 15);
 }
-
-
-
-
-
 
 
 
@@ -282,7 +265,7 @@ input[type="text"] {
 figure {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .Slides img {
@@ -355,13 +338,55 @@ figure {
   padding-top: 20%;
 }
 
+
+/* --------------- Search Results ----------- */
+
+.results-grid {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: space-evenly;
+  max-width: 100vw;
+  margin-top: 2em;
+}
+
+.results-grid img {
+  height: 300px;
+  width: auto;
+}
+
+.figure2 {
+  height: 300px;
+	width: 200px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.hover01 result-image {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  height: 100%;
+  width: 100%;
+}
+.hover01 result-image:hover {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+
+.results-movie {
+  width: 200px;
+}
+
 /* #### ------------Media Queries -------------####*/
 
 /* Movie Component Css */
 
 @media screen and (min-width: 694px) and (max-width: 915px) {
   .movie {
-    max-width: 33%;
+    
   }
 
   
@@ -369,14 +394,14 @@ figure {
 
 @media screen and (min-width: 652px) and (max-width: 693px) {
   .movie {
-    max-width: 50%;
+    
   }
 }
 
 @media screen and (max-width: 651px) {
   .movie {
-    max-width: 100%;
-    margin: auto;
+
+
   }
 
   .search {

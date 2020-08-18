@@ -67,7 +67,14 @@ const App = () => {
             <Genres {...props} searchState={searchState} display={searchDisplay} />
           )}
         />
-        <Route path="/details" exact component={Detail} />
+        
+        <Route 
+          path="/details" 
+          exact 
+          render={(props) => (
+            <Detail {...props} displayFalse={changeDisplayFalse} />
+          )} 
+        />
         <Route path="/404" component={NoMatchPage} />
         <Redirect to="/404" />
         </Switch>

@@ -95,7 +95,7 @@ const Detail = (props) => {
                     </div>
                     <div className="play-button-container">
                       <button className="play-button">Play Movie</button>
-                      <Link to='/'><p className="return">Return Home</p></Link>  
+                      <Link to='/'><p className="return" onClick={props.displayFalse}>Return Home</p></Link>  
                     </div>
                   </div>
                 </div>
