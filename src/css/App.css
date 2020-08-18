@@ -284,6 +284,10 @@ figure {
 	transform: scale(1.3);
 }
 
+.slick-slide img{
+  max-width: 333px;
+}
+
 
 
 /* Carousel container */
@@ -345,14 +349,13 @@ figure {
   display: grid;
   grid-gap: 50px;
   grid-template-columns: repeat(5, 1fr);
-  justify-content: space-evenly;
+  justify-content: center;
   max-width: 100vw;
-  margin-top: 2em;
 }
 
 .results-grid img {
   height: 300px;
-  width: auto;
+  max-width: 200px;
 }
 
 .figure2 {
@@ -378,6 +381,9 @@ figure {
 
 .results-movie {
   width: 200px;
+  place-self: center;
+  padding-top: 3em;
+  padding-bottom: 3em;
 }
 
 /* #### ------------Media Queries -------------####*/

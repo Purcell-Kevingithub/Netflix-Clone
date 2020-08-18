@@ -97,28 +97,27 @@ const Genres = (props) => {
     return (
         <div className="genres">
             <SearchResults results={props.searchState} display={props.display}/>
-            <div className="first-genre">
+            <div className="first-genre" style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title">New Releases</h1>
               {renderMovies(state)}
             </div>
-            <div>
+            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title">Horror</h1>
               {renderMovies(hmState)}     
             </div>
-            <div>
+            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title">Comedy</h1>
               {renderMovies(comedyState)}
             </div>
-
-            <div>
+            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title" >Documentary</h1>
               {renderMovies(documentaryState)}
             </div>
-            <div>
+            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title">Romance</h1>
               {renderMovies(romanceState)}
             </div>
-            <div className="last-genre">
+            <div className="last-genre" style={{display: props.genreDisplay ? 'grid': 'none' }}>
               <h1 className="genre-title">Science Fiction</h1>
               {renderMovies(scifiState)}
             </div>

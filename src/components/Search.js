@@ -15,7 +15,7 @@ const Search = (props) => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
-  
+    props.displayGenre(false);
   }
 
   return (
@@ -28,7 +28,7 @@ const Search = (props) => {
           type="text"
           required
         />
-        <button onClick={props.display}>Search</button>
+        <button onClick={props.displayTrue}>Search</button>
       </form>   
     </div>
     );

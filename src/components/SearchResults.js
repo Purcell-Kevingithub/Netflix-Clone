@@ -34,7 +34,7 @@ const SearchResults = ({results, display}) => {
     }
 
     return (
-        <div className="results-grid" style={{display: display ? 'grid': 'none' }}>{renderResults()}</div>
+        <div className="results-grid" style={{display: display ? 'grid': 'none', minHeight: display ? '0vh': '100vh' }}>{renderResults()}</div>
       );
 }
 

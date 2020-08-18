@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 const App = () => {
   const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
   const [searchDisplay, setSearchDisplay] = useState(true);
+  const [showGenre, setShownGenre] = useState(true);
 
   const changeDisplayFalse = () => {
     return setSearchDisplay(false);
@@ -19,6 +20,10 @@ const App = () => {
 
   const changeDisplayTrue = () => {
     return setSearchDisplay(true);
+  }
+
+  const changeShowGenre = () => {
+    return setShownGenre(true);
   }
 
   // This search function is passed down as a prop to the child components search. This function is then ran in 
@@ -56,7 +61,7 @@ const App = () => {
         <Route
           path='/'
           render={(props) => (
-            <Header {...props} search={search} displayFalse={changeDisplayFalse} displayTrue={changeDisplayTrue}/>
+            <Header {...props} search={search} displayFalse={changeDisplayFalse} displayTrue={changeDisplayTrue} displayGenre={setShownGenre} changeGenre={changeShowGenre}/>
           )}
         />
         <Switch>  
@@ -64,7 +69,7 @@ const App = () => {
           exact
           path='/'
           render={(props) => (
-            <Genres {...props} searchState={searchState} display={searchDisplay} />
+            <Genres {...props} searchState={searchState} display={searchDisplay} genreDisplay={showGenre} />
           )}
         />
         
