@@ -1,10 +1,9 @@
-import SearchResults from './SearchResults';
 import Myslider from './Carousel';
 import React, { useReducer, useEffect } from "react";
 import  { MOVIE_POPULAR_URL, COMEDY_POPULAR_URL, HORRORMYSTERY_POPULAR_URL, DOCUMENTARY_POPULAR_URL, ROMANCE_POPULAR_URL, SCIFI_POPULAR_URL } from "../apis/endPoints";
 import * as Reducers from '../reducers/Reducers';
 
-const Genres = (props) => {
+const Genres = () => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request. 
   // This is a more complicated state object.
   const [state, dispatch] = useReducer(Reducers.movieReducer, Reducers.initialState);
@@ -95,33 +94,31 @@ const Genres = (props) => {
      }
 
     return (
-        <div className="genres">
-            <SearchResults results={props.searchState} display={props.display}/>
-            <div className="first-genre" style={{display: props.genreDisplay ? 'grid': 'none' }}>
+        <div className="genres"> 
+            <div className="first-genre">
               <h1 className="genre-title">New Releases</h1>
               {renderMovies(state)}
             </div>
-            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
+            <div>
               <h1 className="genre-title">Horror</h1>
               {renderMovies(hmState)}     
             </div>
-            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
+            <div>
               <h1 className="genre-title">Comedy</h1>
               {renderMovies(comedyState)}
             </div>
-            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
+            <div>
               <h1 className="genre-title" >Documentary</h1>
               {renderMovies(documentaryState)}
             </div>
-            <div style={{display: props.genreDisplay ? 'grid': 'none' }}>
+            <div>
               <h1 className="genre-title">Romance</h1>
               {renderMovies(romanceState)}
             </div>
-            <div className="last-genre" style={{display: props.genreDisplay ? 'grid': 'none' }}>
+            <div className="last-genre">
               <h1 className="genre-title">Science Fiction</h1>
               {renderMovies(scifiState)}
             </div>
-
         </div>
     );
 

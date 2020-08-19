@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router"
 
 const Search = (props) => {
+  let history = useHistory();
+
+  function handleClick() {
+    history.push("/searchresults")
+  }
+
   const [searchValue, setSearchValue] = useState("");
   
   const handleSearchInputChanges = (e) => {
@@ -15,7 +22,7 @@ const Search = (props) => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
-    props.displayGenre(false);
+    handleClick();
   }
 
   return (
@@ -28,10 +35,12 @@ const Search = (props) => {
           type="text"
           required
         />
-        <button onClick={props.displayTrue}>Search</button>
+        <button onClick={handleClick}>Search</button>
       </form>   
     </div>
     );
 }
 
 export default Search;
+
+  

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import TMDB_KEY from '../apis/Apikey';
 import "../css/App.css";
 import Header from "./Header";
@@ -7,24 +7,11 @@ import Detail from './Moviedetails';
 import NoMatchPage from './NoMatchPage';
 import * as Reducers from '../reducers/Reducers';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import SearchResults from "./SearchResults";
 
 // This is the main functional component where everything is attached. 
 const App = () => {
   const [searchState, searchDispatch] = useReducer(Reducers.searchReducer, Reducers.initSearch)
-  const [searchDisplay, setSearchDisplay] = useState(true);
-  const [showGenre, setShownGenre] = useState(true);
-
-  const changeDisplayFalse = () => {
-    return setSearchDisplay(false);
-  }
-
-  const changeDisplayTrue = () => {
-    return setSearchDisplay(true);
-  }
-
-  const changeShowGenre = () => {
-    return setShownGenre(true);
-  }
 
   // This search function is passed down as a prop to the child components search. This function is then ran in 
     // search component based on the value from user typing.
@@ -56,35 +43,37 @@ const App = () => {
 
 
     return (
-    <div className="App grid">
-      <Router>
-        <Route
-          path='/'
-          render={(props) => (
-            <Header {...props} search={search} displayFalse={changeDisplayFalse} displayTrue={changeDisplayTrue} displayGenre={setShownGenre} changeGenre={changeShowGenre}/>
-          )}
-        />
-        <Switch>  
-        <Route
-          exact
-          path='/'
-          render={(props) => (
-            <Genres {...props} searchState={searchState} display={searchDisplay} genreDisplay={showGenre} />
-          )}
-        />
-        
-        <Route 
-          path="/details" 
-          exact 
-          render={(props) => (
-            <Detail {...props} displayFalse={changeDisplayFalse} />
-          )} 
-        />
-        <Route path="/404" component={NoMatchPage} />
-        <Redirect to="/404" />
-        </Switch>
-      </Router>
-    </div>
+      <div className="App grid">
+        <Router>
+          <Route
+            path='/'
+            render={(props) => (
+              <Header {...props} search={search} />
+            )}
+          />
+          <Switch>  
+          <Route
+            exact
+            path='/'
+            component={Genres}
+          />
+          
+          <Route 
+            path="/details" 
+            exact 
+            component={Detail}
+          />
+          <Route 
+            path="/searchresults" 
+            render={(props) => (
+              <SearchResults {...props} results={searchState}/>
+            )}
+          />
+          <Route path="/404" component={NoMatchPage} />
+          <Redirect to="/404" />
+          </Switch>
+        </Router>
+      </div>
   );
 };
 

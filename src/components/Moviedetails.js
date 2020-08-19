@@ -9,7 +9,8 @@ const Detail = (props) => {
     const currentMovie = props.location.state.movie; 
     const currentId = props.location.state.movie.id;
     const [trailer, trailerDispatch] = useReducer(movieDetailReducer, initDetail);
-    
+   
+
   // not sure if id should be passed as argument to useeffect or fetchtrailer
     useEffect(() => {
         async function fetchTrailer() {
@@ -95,7 +96,7 @@ const Detail = (props) => {
                     </div>
                     <div className="play-button-container">
                       <button className="play-button">Play Movie</button>
-                      <Link to='/'><p className="return" onClick={props.displayFalse}>Return Home</p></Link>  
+                      <Link to='/'><p className="return">Return Home</p></Link>  
                     </div>
                   </div>
                 </div>

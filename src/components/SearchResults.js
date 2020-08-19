@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import placeholder from '../images/comingsoon.png';
 
-const SearchResults = ({results, display}) => {
+const SearchResults = ({results}) => {
     // array of results from search
     const movies = results.search;
     const renderResults = () => {    
@@ -34,7 +34,7 @@ const SearchResults = ({results, display}) => {
     }
 
     return (
-        <div className="results-grid" style={{display: display ? 'grid': 'none', minHeight: display ? '0vh': '100vh' }}>{renderResults()}</div>
+        <div className="results-grid">{renderResults()}</div>
       );
 }
 
