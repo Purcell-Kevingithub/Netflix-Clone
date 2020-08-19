@@ -54,8 +54,6 @@ button {
 
 
 
-
-
 /* fontFamily: "Lucida Console */
 
 /* #### Movie Component CSS #### */
@@ -391,31 +389,64 @@ figure {
 /* Movie Component Css */
 
 @media screen and (min-width: 694px) and (max-width: 915px) {
-  .movie {
-    
-  }
-
   
 }
 
 @media screen and (min-width: 652px) and (max-width: 693px) {
-  .movie {
-    
-  }
+
 }
 
 @media screen and (max-width: 651px) {
-  .movie {
-
-
-  }
-
-  .search {
-    margin-top: 10px;
-  }
-
+  
   .App-header img {
-  /* left: 35%; */
+    height: 80px;
+  }
 
-}
+  .search-container{
+    top: 12px;
+    position: absolute;
+    left: 37%;
+    top: 20%;
+  }
+  
+  
+  .search > input[type="text"]{
+    min-width: 120px;
+    min-height: 50px;
+    margin-right: 10px;
+    font-size: 0.95em;
+  }
+
+  .search button {
+    padding: 5px;
+    width: 80px;
+    min-height: 50px;
+  }
+
+  .first-genre {
+    padding-top: 1em;
+  }
+
+  .genre-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .Slider-container {
+    max-width: 80vw;
+  }
+
+  .movie-grid {
+    width: 90vw;
+    margin: 0px;
+    padding-left: 40px;
+    /* margin-left: 40px; */
+  }
+
+  .Slides img {
+    max-height: 150px;
+    padding-left: 10px;
+    width: auto;
+  }
+
 }
