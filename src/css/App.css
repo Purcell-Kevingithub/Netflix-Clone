@@ -270,6 +270,16 @@ figure {
 .hover01 {
   padding-left: 5px;
 }
+/* left arrow */
+.slick-prev {
+  left: -35px !important;
+}
+
+/* both arrows */
+.slick-prev:before, .slick-next:before {
+  font-size: 30px !important;
+}
+
 
 
 .Slides img {
