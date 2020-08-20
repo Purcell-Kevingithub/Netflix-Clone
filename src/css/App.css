@@ -349,6 +349,8 @@ figure {
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   max-width: 100vw;
+  background-color: #282c34;
+  min-height: 100vh;
 }
 
 .results-grid img {

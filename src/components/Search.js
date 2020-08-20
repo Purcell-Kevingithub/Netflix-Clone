@@ -3,12 +3,16 @@ import { useHistory } from "react-router"
 
 const Search = (props) => {
   let history = useHistory();
-
-  function handleClick() {
-    history.push("/searchresults")
-  }
+ 
 
   const [searchValue, setSearchValue] = useState("");
+
+  function handleClick() {
+    if(searchValue.length === 0){
+      return;
+    }
+    history.push("/searchresults");
+  }
   
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
@@ -17,13 +21,15 @@ const Search = (props) => {
   const resetInputField = () => {
     setSearchValue("")
   }
-
+ 
   const callSearchFunction = (e) => {
     e.preventDefault();
     props.search(searchValue);
     resetInputField();
     handleClick();
   }
+
+  
 
   return (
     <div className="search-container">
