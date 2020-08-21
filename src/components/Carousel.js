@@ -19,7 +19,7 @@ const MySlider = (props) => {
   const renderSlides = () =>
       props.movieArr.map((movie, index) => (
       <div key={`${index}-${movie.id}`}>
-        <Movie movie={movie} num={`${index}-${movie.id}`} />
+        <Movie movie={movie} />
       </div>
     ));
 

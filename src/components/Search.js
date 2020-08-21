@@ -3,11 +3,10 @@ import { useHistory } from "react-router"
 
 const Search = (props) => {
   let history = useHistory();
- 
-
   const [searchValue, setSearchValue] = useState("");
 
   function handleClick() {
+    // don't redirect to results if search form is empty.
     if(searchValue.length === 0){
       return;
     }

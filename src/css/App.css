@@ -1,4 +1,4 @@
-/* #### Whole Component  ####*/
+/*  HTML  */
 * {
   box-sizing: border-box;
 }
@@ -17,12 +17,6 @@ button {
 }
 
 
-
-
-
-
-
-
 /* ### App Component### */
 
 .App {
@@ -30,10 +24,6 @@ button {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
 }
-
-
-
-
 
 
 
@@ -53,9 +43,6 @@ button {
 
 
 
-
-/* fontFamily: "Lucida Console */
-
 /* #### Movie Component CSS #### */
 
 .movie-grid {
@@ -65,7 +52,6 @@ button {
   margin: 2em 4em 0em 4em;
 
 }
-
 
 .movie h6, p {
   margin: 0px;
@@ -78,7 +64,6 @@ button {
 }
 
 
-
 /* Movies Details */
 .details-container{
   background-color: #282c34;
@@ -88,7 +73,6 @@ button {
   padding: 2em 4em 0em 4em;
   height: 100vh;
 }
-
 
 .details-container h1, p {
   color: white;
@@ -110,10 +94,6 @@ button {
   width: 50%;
 }
 
-/* .details-container .date {
-  font-size: 1.2em;
-} */
-
 .details-container .clear {
   clear: both;
 }
@@ -123,8 +103,6 @@ button {
   margin-top: 2em;
   position: relative;
 }
-
-/* ------------------------------------- */
 
 .details-container .play-button {
   transition: 0.7s;
@@ -157,9 +135,6 @@ button {
 }
 
 
-
-/* --------------------------------------- */
-
 .details-container .play-button-container .return {
   float: right;
   width: 20%;
@@ -190,11 +165,6 @@ iframe {
   margin-left: auto;
   margin-right: auto;
 }
-
-
-
-
-
 
 
 /* #### Search Component CSS #### */
@@ -279,7 +249,6 @@ figure {
 .slick-prev:before, .slick-next:before {
   font-size: 30px !important;
 }
-
 
 
 .Slides img {
@@ -404,16 +373,6 @@ figure {
 
 /* #### ------------Media Queries -------------####*/
 
-/* Movie Component Css */
-
-@media screen and (min-width: 694px) and (max-width: 915px) {
-  
-}
-
-@media screen and (min-width: 652px) and (max-width: 693px) {
-
-}
-
 @media screen and (max-width: 651px) {
 
   
@@ -459,7 +418,6 @@ figure {
     width: 90vw;
     margin: 0px;
     padding-left: 40px;
-    /* margin-left: 40px; */
   }
 
   .Slides img {
@@ -552,6 +510,14 @@ figure {
     max-width: 200px;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .no-match p {
+    font-style: italic;
+    color: #e50914;
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    float: none;
   }
   
 }

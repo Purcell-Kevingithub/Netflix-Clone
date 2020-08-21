@@ -11,6 +11,7 @@ const Movie = ({ movie }) => {
     <div className="movie">
       <div className="hover01">
         <Link 
+        // passing the state as a prop through link
         to={{
           pathname: "/details",
           state: { movie }

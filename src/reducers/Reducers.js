@@ -1,4 +1,4 @@
-// init state
+// initialize state
 export const initialState = {
     loading: true,
     movies: [],
@@ -44,8 +44,6 @@ export const initSearch = {
   search: [],
   errorMessage: null
 };
-
-
   
   // Reducer updates state based on switch case. Movies_Request updates state for loading, Movies_Success updates movies aray with data, and
   // Movies_Failure updates errorMessage.

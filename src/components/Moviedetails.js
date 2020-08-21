@@ -10,8 +10,7 @@ const Detail = (props) => {
     const currentId = props.location.state.movie.id;
     const [trailer, trailerDispatch] = useReducer(movieDetailReducer, initDetail);
    
-
-  // not sure if id should be passed as argument to useeffect or fetchtrailer
+    // use the passed in prop currentId to fetch the correct trailer
     useEffect(() => {
         async function fetchTrailer() {
           try {
@@ -48,6 +47,7 @@ const Detail = (props) => {
     const TrailersDisplay = () => {
       return (
         <div className="trailer">
+          {/* return null if video doesn't exist or first render when ajax requests hasn't completed. */}
           {trailer.details.map((video) => {
             if (!video) {
               return null;
