@@ -13,6 +13,26 @@ const MySlider = (props) => {
     slidesToShow: 5,
     slidesToScroll: 3,
     infinite: false,
+    responsive: [
+      {
+          breakpoint: 980, // tablet breakpoint
+          settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3
+          }
+      },
+      {
+          breakpoint: 480, // mobile breakpoint
+          settings: {
+              slidesToShow: 1,
+              slidesToScroll: 2,
+              prevArrow: false,
+              nextArrow: false,
+              dots: true,
+              centerMode: true
+          }
+      }
+  ]
   }
 
 

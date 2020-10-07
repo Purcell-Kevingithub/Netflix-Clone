@@ -410,33 +410,33 @@ figure {
     margin-bottom: 0;
   }
 
-  .Slider-container {
-    max-width: 80vw;
-  }
 
   .movie-grid {
     width: 90vw;
     margin: 0px;
-    padding-left: 40px;
   }
 
   .Slides img {
     padding-left: 10px;
     width: auto;
-    max-height: 200px;
+    max-height: 400px;
 
+  }
+
+  .slick-track {
+    left: -50px !important;
   }
 
   .slick-prev:before, .slick-next:before {
-    font-size: 20px !important;
+    display: none;
   }
 
   .slick-prev{
-    left: -25px !important;
+    display: none;
   }
 
   .slick-next {
-    right: -30px !important;
+    display: none;
   }
 
   .details-container{
