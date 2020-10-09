@@ -19,7 +19,7 @@ const SearchResults = ({results}) => {
                         state: { movie }
                     }}
                     >
-                    <figure className="figure2">
+                    <figure>
                     <img
                         alt={`The movie titled: ${movie.original_title}`}
                         src={poster}

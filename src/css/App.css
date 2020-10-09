@@ -1,4 +1,4 @@
-/*  HTML  */
+/* ------------------------- HTML ------------------------- */
 * {
     box-sizing: border-box;
 }
@@ -16,7 +16,7 @@ button {
     background-color: #e50914;
 }
 
-/* ### App Component### */
+/* ### ---------------------App Component###----------------- */
 
 .App {
     display: grid;
@@ -25,7 +25,7 @@ button {
     width: 100vw;
 }
 
-/* #### Header Component CSS  #### */
+/* ####----------------- Header Component CSS------------  #### */
 
 .App-header {
     background-color: #030303;
@@ -39,7 +39,7 @@ button {
     float: left;
 }
 
-/* #### Movie Component CSS #### */
+/* #### ---------------Movie Component CSS--------------- #### */
 
 .movie-grid {
     display: grid;
@@ -59,7 +59,7 @@ p {
     color: rgb(161, 15, 15);
 }
 
-/* Movies Details */
+/*----------------------- Movies Details----------------------- */
 .details-container {
     background-color: #282c34;
     display: grid;
@@ -163,7 +163,7 @@ iframe {
     margin-right: auto;
 }
 
-/* #### Search Component CSS #### */
+/* #### -----------------Search Component CSS-------------- #### */
 
 .search-container {
     min-height: 50px;
@@ -215,7 +215,7 @@ input[type="text"] {
     min-height: 35px;
 }
 
-/* Slider Css */
+/*--------------------------- Slider Css----------------------- */
 .Slider-container {
     width: 90vw;
 }
@@ -232,8 +232,23 @@ figure {
 }
 
 .hover01 {
-    padding-left: 5px;
+    padding-left: 1.5em;
 }
+
+.hover01 figure img {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+    max-height: 500px;
+    width: 100%;
+}
+
+.hover01 figure:hover img {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
 /* left arrow */
 .slick-prev {
     left: -35px !important;
@@ -245,28 +260,7 @@ figure {
     font-size: 30px !important;
 }
 
-.Slides img {
-    max-height: 500px;
-    min-width: 200px;
-    padding-left: 0px;
-}
-
-.hover01 figure img {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
-}
-.hover01 figure:hover img {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
-}
-
-.slick-slide img {
-    max-width: 333px;
-}
-
-/* Carousel container */
+/* ------------------------Carousel container ------------------*/
 .genres {
     background-color: #282c34;
 }
@@ -289,7 +283,7 @@ figure {
     padding-bottom: 3em;
 }
 
-/* No Match page */
+/* ---------------------No Match page--------------------- */
 .no-match {
     background-color: #282c34;
     color: white;
@@ -316,7 +310,7 @@ figure {
     padding-top: 20%;
 }
 
-/* --------------- Search Results ----------- */
+/* ---------------------- Search Results ---------------------- */
 
 .results-grid {
     display: grid;
@@ -329,28 +323,8 @@ figure {
 }
 
 .results-grid img {
+    width: 100%;
     height: 300px;
-    max-width: 200px;
-}
-
-.figure2 {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
-}
-
-.hover01 result-image {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
-    transition: 0.3s ease-in-out;
-    height: 100%;
-    width: 100%;
-}
-.hover01 result-image:hover {
-    -webkit-transform: scale(1.3);
-    transform: scale(1.3);
 }
 
 .results-movie {
@@ -360,14 +334,26 @@ figure {
     padding-bottom: 3em;
 }
 
-/* #### ------------Media Queries -------------####*/
+.hover01 result-image:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+/* #### ------------Media Queries -------------------------####*/
 
 @media screen and (max-width: 651px) {
+    /* ---------------------App Component###-----------------  */
+
+    p {
+        padding: 20px;
+    }
+
     .App-header img {
         height: 160px;
         width: 100vw;
     }
 
+    /* ----------------Search containers------------------ */
     .search-container {
         top: 170px !important;
         position: absolute;
@@ -382,16 +368,13 @@ figure {
         font-size: 0.95em;
     }
 
-    .results-movie {
-        width: 100%;
-        padding-bottom: 1em;
-    }
     .search button {
         padding: 5px;
         width: 80px;
         min-height: 50px;
     }
 
+    /* -----------Carousel Containter ------------------------- */
     .first-genre {
         padding-top: 1em;
     }
@@ -402,26 +385,41 @@ figure {
         margin-left: 0.5em;
     }
 
-    figure {
-        height: 430px;
-    }
+    /* ------------------------Slider ------------------------- */
 
-    .figure2 {
-        height: 250px;
-        width: 100%;
-    }
     .movie-grid {
-        width: 90vw;
+        width: 100vw;
         margin: 0px;
     }
 
-    .Slides img {
-        padding-left: 10px;
-        max-height: 400px;
-        width: auto;
-        margin-bottom: 2em;
+    .hover01 {
+        padding-left: 0.75em;
+        height: 50vh;
     }
 
+    .hover01 figure img {
+        margin-bottom: 2em;
+        height: 50vh;
+    }
+
+    /*--------------------------  Results------------------ */
+
+    .results-grid {
+        display: grid;
+        grid-gap: 1px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100vw;
+        background-color: #282c34;
+        min-height: 100vh;
+        padding: 75px 10px 10px 10px;
+    }
+
+    .results-movie {
+        width: 50vw;
+        padding: 0 0 2em 0;
+    }
+
+    /* arrows/dots */
     .slick-dots li.slick-active button:before {
         font-size: 11px !important;
         opacity: 1 !important;
@@ -432,8 +430,8 @@ figure {
         color: white !important;
     }
 
-    .slick-track {
-        left: -50px !important;
+    .slick-dots {
+        bottom: -68px !important;
     }
 
     .slick-prev:before,
@@ -441,6 +439,11 @@ figure {
         display: none;
     }
 
+    .slick-track {
+        left: -50px !important;
+    }
+
+    /* -------------------------Details------------------- */
     .details-container {
         background-color: #282c34;
         display: grid;
@@ -448,15 +451,6 @@ figure {
         grid-template-columns: 1fr;
         padding: 0;
         height: 100%;
-    }
-
-    .trailer-image {
-        display: block;
-        margin-left: auto;
-        max-width: 100vw;
-        margin-right: auto;
-        max-height: 60vh;
-        width: 100%;
     }
 
     .details-container .float-left {
@@ -475,8 +469,13 @@ figure {
         font-size: 1.3em;
     }
 
-    p {
-        padding: 20px;
+    .trailer-image {
+        display: block;
+        margin-left: auto;
+        max-width: 100vw;
+        margin-right: auto;
+        max-height: 60vh;
+        width: 100%;
     }
 
     .details-container .play-button-container {
@@ -491,21 +490,7 @@ figure {
         width: 50% !important;
     }
 
-    .results-grid {
-        display: grid;
-        grid-gap: 1px;
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 100vw;
-        background-color: #282c34;
-        min-height: 100vh;
-        padding: 25px 10px 10px 10px;
-    }
-
-    .results-grid img {
-        height: 250px;
-        max-width: 100%;
-    }
-
+    /* ---------------------------no match----------------- */
     .no-match p {
         font-style: italic;
         color: #e50914;
@@ -514,12 +499,3 @@ figure {
         float: none;
     }
 }
-
-/* seach result image figure 
-/* image  height
-   figure  height
-   hover  height
-   results movie 
-   /* these containers can all be the same height.
-   need to check hover properties are the same on mobile and
-   being applied to elements. */
