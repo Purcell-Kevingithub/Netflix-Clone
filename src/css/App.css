@@ -399,6 +399,35 @@ figure {
         height: 50vh;
     }
 
+    /* arrows/dots */
+    .slick-dots li.slick-active button:before {
+        font-size: 11px !important;
+        opacity: 1 !important;
+        color: red !important;
+    }
+
+    .slick-dots li button::before {
+        color: white !important;
+    }
+
+    .slick-dots {
+        bottom: -60px !important;
+        margin: 0 0.5em !important;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        display: none;
+    }
+
+    .slick-track {
+        left: -50px !important;
+    }
+
+    .slick-dots li {
+        width: 0.85em !important;
+        margin: 1px 1px !important;
+    }
     /*--------------------------  Results------------------ */
 
     .results-grid {
@@ -414,30 +443,6 @@ figure {
     .results-movie {
         width: 50vw;
         padding: 0 0 2em 0;
-    }
-
-    /* arrows/dots */
-    .slick-dots li.slick-active button:before {
-        font-size: 11px !important;
-        opacity: 1 !important;
-        color: red !important;
-    }
-
-    .slick-dots li button::before {
-        color: white !important;
-    }
-
-    .slick-dots {
-        bottom: -68px !important;
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-        display: none;
-    }
-
-    .slick-track {
-        left: -50px !important;
     }
 
     /* -------------------------Details------------------- */
