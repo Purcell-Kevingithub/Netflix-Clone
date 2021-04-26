@@ -16,27 +16,71 @@ button {
   background-color: #e50914;
 }
 
-/* ### ---------------------App Component###----------------- */
-
-.App {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  width: 100vw;
-}
-
 /* ####----------------- Header Component CSS------------  #### */
 
 .App-header {
   background-color: #030303;
-  width: 100%;
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 
 .App-header img {
-  height: 70px;
-  width: auto;
-  float: left;
+  height: 100%;
+}
+
+.netflix-logo {
+  height: 100%;
+}
+
+/* #### -----------------Search Component CSS-------------- #### */
+
+.search-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  max-width: 450px;
+}
+
+.search {
+  position: relative;
+  height: 45px;
+}
+
+.search button {
+  transition: 0.3s;
+  font-size: 15px;
+  position: absolute;
+  color: white;
+  border: 1px solid white;
+  width: 80px;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 7px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.search button:hover {
+  color: white;
+  background-color: #e50914;
+}
+
+.search input {
+  text-indent: 10px;
+  height: 100%;
+  width: 100%;
+  font-size: 15px;
+}
+
+.search input:focus {
+  outline: none;
 }
 
 /* #### ---------------Movie Component CSS--------------- #### */
@@ -160,64 +204,12 @@ iframe {
   margin-right: auto;
 }
 
-/* #### -----------------Search Component CSS-------------- #### */
-
-.search-container {
-  min-height: 50px;
-  position: absolute;
-  left: 40%;
-  top: 17px;
-}
-
-.search button {
-  transition: 0.7s;
-  padding: 5px;
-  background-color: transparent;
-  color: white;
-  border: 1px solid white;
-  width: 80px;
-  margin-left: 5px;
-  cursor: pointer;
-  min-height: 35px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.search button::before {
-  background: #e50914;
-  transition: 0.5s;
-  transform: scale(0.9);
-  z-index: -1;
-}
-
-.search button:hover::before {
-  transform: scale(1.1);
-  box-shadow: 0 0 45px #e50914;
-}
-
-.search button:hover {
-  color: white;
-  box-shadow: 0 0 5px #e50914;
-  text-shadow: 0 0 5px #e50914;
-  background-color: #e50914;
-}
-
-input[type="text"] {
-  width: 100px;
-  position: relative;
-}
-
-.search > input[type="text"] {
-  min-width: 250px;
-  min-height: 35px;
-}
-
 /*--------------------------- Slider Css----------------------- */
 .Slider-container {
   width: 90vw;
 }
 
-.Slides {
+/* .Slides {
   font-family: sans-serif;
 }
 
@@ -244,7 +236,7 @@ figure {
 .hover01 figure:hover img {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
-}
+} */
 
 /* left arrow */
 .slick-prev {
