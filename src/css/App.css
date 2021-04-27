@@ -352,7 +352,7 @@ figure {
 @media only screen and (max-width: 1200px) {
   /* ---------------------Header Component---------------------  */
   .netflix-container {
-    width: 20vw;
+    width: 22vw;
   }
 
   /* ----------------Search Component------------------ */
@@ -374,7 +374,7 @@ figure {
 
 @media only screen and (max-width: 1000px) {
   .netflix-container {
-    width: 28vw;
+    width: 30vw;
   }
 
   .search-container {
@@ -385,11 +385,12 @@ figure {
 /* --------------------------------SMALL ----------------------------------------------------------------- */
 @media only screen and (max-width: 850px) {
   .netflix-container {
-    width: 28vw;
+    width: 34vw;
   }
 
   .search-container {
-    transform: translate(-35%, -50%);
+    transform: translate(-25%, -50%);
+    width: 50%;
   }
 }
 
