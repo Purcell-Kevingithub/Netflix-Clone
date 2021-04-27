@@ -52,7 +52,7 @@ const App = () => {
   };
 
   return (
-    <div className="App grid">
+    <div className="App">
       <Router>
         <Route
           path="/"

@@ -7,8 +7,11 @@ import Search from "./Search";
 const Header = (props) => {
   return (
     <div className="App-header">
-      <Link to="/" className="netflix-logo">
-        <img src={netflix} alt="Netflix logo" />
+      <Link to="/" className="netflix-container">
+        <div
+          className="netflix-logo"
+          style={{ backgroundImage: `url(${netflix})` }}
+        ></div>
       </Link>
       <Search search={props.search} />
     </div>

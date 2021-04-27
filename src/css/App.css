@@ -20,20 +20,24 @@ button {
 
 .App-header {
   background-color: #030303;
-  height: 8vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
+  height: 13vh;
 }
 
-.App-header img {
+.netflix-container {
   height: 100%;
+  width: 15vw;
 }
 
 .netflix-logo {
   height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* #### -----------------Search Component CSS-------------- #### */
@@ -53,7 +57,7 @@ button {
 }
 
 .search button {
-  transition: 0.3s;
+  transition: all 0.3s linear;
   font-size: 15px;
   position: absolute;
   color: white;
@@ -72,11 +76,18 @@ button {
   background-color: #e50914;
 }
 
+.search button:active,
+.search button:visited {
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
 .search input {
   text-indent: 10px;
   height: 100%;
   width: 100%;
   font-size: 15px;
+  border-radius: 7px;
 }
 
 .search input:focus {
@@ -330,37 +341,101 @@ figure {
 
 /* #### ------------Media Queries -------------------------####*/
 
-@media screen and (max-width: 651px) {
-  /* ---------------------App Component###-----------------  */
+/* --------------------------------EXTRA--lARGE ----------------------------------------------------------------- */
+@media only screen and (max-width: 1400px) {
+  .netflix-container {
+    width: 18vw;
+  }
+}
 
-  p {
-    padding: 20px;
+/* --------------------------------lARGE ----------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+  /* ---------------------Header Component---------------------  */
+  .netflix-container {
+    width: 20vw;
   }
 
-  .App-header img {
-    height: 160px;
-    width: 100vw;
-  }
-
-  /* ----------------Search containers------------------ */
-  .search-container {
-    top: 170px !important;
-    position: absolute;
-    left: 5%;
-    top: 20%;
-  }
-
-  .search > input[type="text"] {
-    min-width: 55vw;
-    min-height: 50px;
-    margin-right: 10px;
-    font-size: 0.95em;
+  /* ----------------Search Component------------------ */
+  .search {
+    height: 40px;
   }
 
   .search button {
-    padding: 5px;
-    width: 80px;
-    min-height: 50px;
+    font-size: 13px;
+  }
+
+  .search input {
+    text-indent: 8px;
+    font-size: 13px;
+  }
+}
+
+/* --------------------------------MEDIUM ----------------------------------------------------------------- */
+
+@media only screen and (max-width: 1000px) {
+  .netflix-container {
+    width: 28vw;
+  }
+
+  .search-container {
+    transform: translate(-25%, -50%);
+  }
+}
+
+/* --------------------------------SMALL ----------------------------------------------------------------- */
+@media only screen and (max-width: 850px) {
+  .netflix-container {
+    width: 28vw;
+  }
+
+  .search-container {
+    transform: translate(-35%, -50%);
+  }
+}
+
+/* ---------------------------- MOBILE-----------------------------------------------------------*/
+@media only screen and (max-width: 700px) {
+  /* ---------------------Header Component---------------------  */
+
+  .App-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 30vh;
+    padding-bottom: 10px;
+  }
+
+  .netflix-container {
+    display: block;
+    width: 100%;
+  }
+
+  .netflix-logo {
+    height: 20vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+  }
+
+  /* ----------------Search Component------------------ */
+
+  .search-container {
+    position: static;
+    display: block;
+    transform: translate(-12%, 0);
+    width: 50%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .search-container input {
+    font-size: 11px;
+  }
+
+  .search-container button {
+    font-size: 11px;
   }
 
   /* -----------Carousel Containter ------------------------- */
@@ -462,6 +537,10 @@ figure {
     width: 50%;
     float: left;
     margin-bottom: 1em;
+  }
+
+  p {
+    padding: 20px;
   }
 
   p.return {
