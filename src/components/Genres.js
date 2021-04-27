@@ -100,7 +100,7 @@ const Genres = () => {
   // the movies errormsg and loading props are destructed from the current state and then passed as props below
   const renderMovies = (currentState) => {
     return (
-      <div className="movies movie-grid">
+      <div className="genre-grid">
         {/* If loading and no error show loading message */}
         {currentState.loading && !currentState.errorMessage ? (
           <span>loading... </span>
@@ -117,28 +117,28 @@ const Genres = () => {
 
   return (
     <div className="genres">
-      <div className="first-genre">
-        <h1 className="genre-title">New Releases</h1>
+      <div className="genre">
+        <p className="genre-title">New Releases</p>
         {renderMovies(state)}
       </div>
-      <div>
-        <h1 className="genre-title">Horror</h1>
+      <div className="genre">
+        <p className="genre-title">Horror</p>
         {renderMovies(hmState)}
       </div>
-      <div>
-        <h1 className="genre-title">Comedy</h1>
+      <div className="genre">
+        <p className="genre-title">Comedy</p>
         {renderMovies(comedyState)}
       </div>
-      <div>
-        <h1 className="genre-title">Documentary</h1>
+      <div className="genre">
+        <p className="genre-title">Documentary</p>
         {renderMovies(documentaryState)}
       </div>
-      <div>
-        <h1 className="genre-title">Romance</h1>
+      <div className="genre">
+        <p className="genre-title">Romance</p>
         {renderMovies(romanceState)}
       </div>
-      <div className="last-genre">
-        <h1 className="genre-title">Science Fiction</h1>
+      <div className="genre">
+        <p className="genre-title">Science Fiction</p>
         {renderMovies(scifiState)}
       </div>
     </div>

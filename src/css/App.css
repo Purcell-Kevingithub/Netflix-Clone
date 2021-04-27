@@ -1,10 +1,8 @@
 /* ------------------------- HTML ------------------------- */
 * {
   box-sizing: border-box;
-}
-
-body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -16,7 +14,7 @@ button {
   background-color: #e50914;
 }
 
-/* ####----------------- Header Component CSS------------  #### */
+/* ####----------------- Header Component------------  #### */
 
 .App-header {
   background-color: #030303;
@@ -40,7 +38,7 @@ button {
   background-repeat: no-repeat;
 }
 
-/* #### -----------------Search Component CSS-------------- #### */
+/* #### -----------------Search Component-------------- #### */
 
 .search-container {
   position: absolute;
@@ -94,25 +92,86 @@ button {
   outline: none;
 }
 
-/* #### ---------------Movie Component CSS--------------- #### */
+/* #### ---------------Genre Component--------------- #### */
 
-.movie-grid {
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: repeat(20, auto);
-  margin: 2em 4em 0em 4em;
+.genres {
+  background-color: #282c34;
 }
 
-.movie h6,
-p {
-  margin: 0px;
+.genre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.errorMessage {
-  margin: auto;
-  font-weight: bold;
-  color: rgb(161, 15, 15);
+.genre-grid {
+  width: 90vw;
 }
+
+.genre p {
+  color: #e50914;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.movie img {
+  width: 100%;
+}
+
+.slick-slide:hover img {
+  transform: translateY(-3px) !important;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*--------------------------- Slider Css----------------------- */
+/* .Slider-container {
+  width: 90vw;
+} */
+
+/* .Slides {
+  font-family: sans-serif;
+}
+
+figure {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.hover01 {
+  padding-left: 1.5em;
+}
+
+.hover01 figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  max-height: 500px;
+  width: 100%;
+}
+
+.hover01 figure:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+} */
+
+/* left arrow */
+/* .slick-prev {
+  left: -35px !important;
+} */
+
+/* both arrows */
+/* .slick-prev:before,
+.slick-next:before {
+  font-size: 30px !important;
+} */
 
 /*----------------------- Movies Details----------------------- */
 .details-container {
@@ -215,74 +274,6 @@ iframe {
   margin-right: auto;
 }
 
-/*--------------------------- Slider Css----------------------- */
-.Slider-container {
-  width: 90vw;
-}
-
-/* .Slides {
-  font-family: sans-serif;
-}
-
-figure {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-}
-
-.hover01 {
-  padding-left: 1.5em;
-}
-
-.hover01 figure img {
-  -webkit-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  max-height: 500px;
-  width: 100%;
-}
-
-.hover01 figure:hover img {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
-} */
-
-/* left arrow */
-.slick-prev {
-  left: -35px !important;
-}
-
-/* both arrows */
-.slick-prev:before,
-.slick-next:before {
-  font-size: 30px !important;
-}
-
-/* ------------------------Carousel container ------------------*/
-.genres {
-  background-color: #282c34;
-}
-
-.genres h1 {
-  color: #e50914;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.genre-title {
-  margin-left: 2em;
-}
-
-.first-genre {
-  padding-top: 3em;
-}
-
-.last-genre {
-  padding-bottom: 3em;
-}
-
 /* ---------------------No Match page--------------------- */
 .no-match {
   background-color: #282c34;
@@ -308,6 +299,12 @@ figure {
 
 .no-match h3 {
   padding-top: 20%;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
 }
 
 /* ---------------------- Search Results ---------------------- */
@@ -439,25 +436,9 @@ figure {
     font-size: 11px;
   }
 
-  /* -----------Carousel Containter ------------------------- */
-  .first-genre {
-    padding-top: 1em;
-  }
-
-  .genre-title {
-    margin-top: 2em;
-    margin-bottom: 0.5em;
-    margin-left: 0.5em;
-  }
-
   /* ------------------------Slider ------------------------- */
 
-  .movie-grid {
-    width: 100vw;
-    margin: 0px;
-  }
-
-  .hover01 {
+  /* .hover01 {
     padding-left: 0.75em;
     height: 50vh;
   }
@@ -465,10 +446,10 @@ figure {
   .hover01 figure img {
     margin-bottom: 2em;
     height: 50vh;
-  }
+  } */
 
   /* arrows/dots */
-  .slick-dots li.slick-active button:before {
+  /* .slick-dots li.slick-active button:before {
     font-size: 11px !important;
     opacity: 1 !important;
     color: red !important;
@@ -495,7 +476,7 @@ figure {
   .slick-dots li {
     width: 0.85em !important;
     margin: 1px 1px !important;
-  }
+  } */
   /*--------------------------  Results------------------ */
 
   .results-grid {

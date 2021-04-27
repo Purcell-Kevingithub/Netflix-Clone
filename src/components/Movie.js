@@ -9,22 +9,15 @@ const Movie = ({ movie }) => {
       : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
   return (
     <div className="movie">
-      <div className="hover01">
-        <Link
-          // passing the state as a prop through link
-          to={{
-            pathname: "/details",
-            state: { movie },
-          }}
-        >
-          <figure>
-            <img
-              alt={`The movie titled: ${movie.original_title}`}
-              src={poster}
-            />
-          </figure>
-        </Link>
-      </div>
+      <Link
+        // passing the state as a prop through link
+        to={{
+          pathname: "/details",
+          state: { movie },
+        }}
+      >
+        <img alt={`The movie titled: ${movie.original_title}`} src={poster} />
+      </Link>
     </div>
   );
 };

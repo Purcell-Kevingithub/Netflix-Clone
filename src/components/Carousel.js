@@ -10,7 +10,7 @@ import Slider from "react-slick";
 const MySlider = (props) => {
   const settings = {
     slidesToShow: 5,
-    slidesToScroll: 3,
+    slidesToScroll: 5,
     infinite: false,
     responsive: [
       {
