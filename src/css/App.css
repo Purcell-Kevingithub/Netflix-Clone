@@ -55,7 +55,7 @@ button {
 }
 
 .search button {
-  transition: all 0.3s linear;
+  transition: all 0.2s linear;
   font-size: 15px;
   position: absolute;
   color: white;
@@ -252,35 +252,40 @@ iframe {
 
 /* ---------------------No Match page--------------------- */
 .no-match {
-  background-color: #282c34;
-  color: white;
-  height: 100vh;
-  text-align: center;
-  font-size: 2em;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 13vh);
 }
 
-.no-match p {
-  width: 20%;
-  font-style: italic;
-  color: #e50914;
-  font-size: 1.2em;
-  margin-top: 1.2em;
-  float: right;
+.no-match-heading {
+  font-size: 40px;
 }
 
-.no-match p:hover {
-  color: antiquewhite;
+.no-match a {
+  text-decoration: none;
+  color: #fff;
   cursor: pointer;
+  display: inline-block;
+  transition: all 0.2s linear;
+  font-size: 25px;
+  border-bottom: 1px solid transparent;
+  position: relative;
+  display: flex;
+  margin-top: 30px;
 }
 
-.no-match h3 {
-  padding-top: 20%;
+.no-match a:hover {
+  color: #e50914;
+  border-bottom: 1px solid #e50914;
+  transform: translateY(-2px);
 }
 
-.errorMessage {
-  margin: auto;
-  font-weight: bold;
-  color: rgb(161, 15, 15);
+.no-match a:after {
+  content: "\21E8";
+  margin-left: 10px;
 }
 
 /* ---------------------- Search Results ---------------------- */
@@ -305,6 +310,14 @@ iframe {
 .results-grid img:hover {
   transform: scale(1);
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* #### ------------ERROR Components -------------------------####*/
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
 }
 
 /* #### ------------Media Queries -------------------------####*/
