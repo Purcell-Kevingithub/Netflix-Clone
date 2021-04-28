@@ -70,9 +70,12 @@ const Genres = () => {
     fetch(DOCUMENTARY_POPULAR_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
+        const filterAdult = jsonResponse.results.filter((movie) => {
+          return !movie.original_title.toLowerCase().includes("porn");
+        });
         documentaryDispatch({
           type: "SEARCH_MOVIES_SUCCESS",
-          payload: jsonResponse.results,
+          payload: filterAdult,
         });
       });
 
@@ -93,6 +96,7 @@ const Genres = () => {
           payload: jsonResponse.results,
         });
       });
+
     // Returning an empty array as second argument here to prevent infinite requests.An empty array only makes the request once so
     // useeffect acts like componenetdidmount. It will continue to make requests if data passed into array is not equivalent to previous request.
   }, []);
