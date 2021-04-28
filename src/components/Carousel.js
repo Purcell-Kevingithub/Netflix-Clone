@@ -43,9 +43,7 @@ const MySlider = (props) => {
 
   return (
     <div className="Slider-container">
-      <div className="Slides">
-        <Slider {...settings}>{renderSlides()}</Slider>
-      </div>
+      <Slider {...settings}>{renderSlides()}</Slider>
     </div>
   );
 };
