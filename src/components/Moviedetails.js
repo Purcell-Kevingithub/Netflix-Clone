@@ -78,23 +78,34 @@ const Detail = (props) => {
           <div className="errorMessage">{trailer.errorMessage}</div>
         ) : (
           // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-          <div className="details-container">
-            <div>
-              <img
+          <div className="poster-container">
+            <div
+              className="poster"
+              style={{
+                backgroundImage: `url(${poster})`,
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                height: "100%",
+                width: "100%",
+                position: "absolute",
+                top: "0",
+                left: "0",
+                zIndex: "-1",
+                opacity: ".65",
+              }}
+            >
+              {/* <img
                 src={poster}
                 alt={currentMovie.original_title}
                 className="trailer-image"
-              />
+              /> */}
             </div>
-            <div>
+            <div className="details-container">
               {TrailersDisplay()}
-              <div>
-                <h1 className="float-left">{currentMovie.original_title}</h1>
-                <h1 className="float-right">{currentMovie.release_date}</h1>
-              </div>
-              <div className="clear">
-                <p>{currentMovie.overview}</p>
-              </div>
+              <h1>{currentMovie.original_title}</h1>
+              <h1>{currentMovie.release_date}</h1>
+              <p>{currentMovie.overview}</p>
               <div className="play-button-container">
                 <button className="play-button">Play Movie</button>
                 <Link to="/">
