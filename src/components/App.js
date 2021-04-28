@@ -5,6 +5,7 @@ import Header from "./Header";
 import Genres from "./Genres";
 import Detail from "./Moviedetails";
 import NoMatchPage from "./NoMatchPage";
+import Footer from "./Footer";
 import * as Reducers from "../reducers/Reducers";
 import {
   BrowserRouter as Router,
@@ -60,7 +61,6 @@ const App = () => {
         />
         <Switch>
           <Route exact path="/" component={Genres} />
-
           <Route path="/details" exact component={Detail} />
           <Route
             path="/searchresults"
@@ -72,6 +72,7 @@ const App = () => {
           <Redirect to="/404" />
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 };

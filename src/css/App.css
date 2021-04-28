@@ -105,6 +105,10 @@ button {
   align-items: center;
 }
 
+.genre:last-child {
+  padding-bottom: 50px;
+}
+
 .genre-grid {
   width: 90vw;
 }
@@ -312,12 +316,24 @@ iframe {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* #### ------------ERROR Components -------------------------####*/
+/* #### ------------ERROR Component -------------------------####*/
 
 .errorMessage {
   margin: auto;
   font-weight: bold;
   color: rgb(161, 15, 15);
+}
+
+/* #### ------------Footer Component -------------------------####*/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #030303;
+  color: #fff;
+  height: 13vh;
+  font-size: 24px;
 }
 
 /* #### ------------Media Queries -------------------------####*/
