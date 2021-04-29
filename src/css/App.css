@@ -122,8 +122,12 @@ button {
   font-style: italic;
 }
 
+.movie {
+}
+
 .movie img {
   width: 100%;
+  height: 100%;
   transition: transform 0.3s ease-out, box-shadow 0.5s ease-out;
   transform: scale(0.85);
 }
