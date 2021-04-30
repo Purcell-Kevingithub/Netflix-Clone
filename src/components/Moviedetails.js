@@ -56,8 +56,8 @@ const Detail = (props) => {
             <iframe
               key={video.id}
               title={video.id}
-              width="420"
-              height="315"
+              width="100%"
+              height="100%"
               src={`https://www.youtube.com/embed/${video.key}`}
               allowFullScreen="allowFullScreen"
             />
@@ -84,7 +84,7 @@ const Detail = (props) => {
               style={{
                 backgroundImage: `url(${poster})`,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
+                backgroundPosition: "top",
                 backgroundSize: "cover",
                 height: "100%",
                 width: "100%",
@@ -103,9 +103,11 @@ const Detail = (props) => {
             </div>
             <div className="details-container">
               {TrailersDisplay()}
-              <h1>{currentMovie.original_title}</h1>
-              <h1>{currentMovie.release_date}</h1>
-              <p>{currentMovie.overview}</p>
+              <div className="details">
+                <h1>{currentMovie.original_title}</h1>
+                <h1>{currentMovie.release_date}</h1>
+                <p>{currentMovie.overview}</p>
+              </div>
               <div className="play-button-container">
                 <button className="play-button">Play Movie</button>
                 <Link to="/">
