@@ -10,6 +10,33 @@ const Detail = (props) => {
   const currentId = props.location.state.movie.id;
   const [trailer, trailerDispatch] = useReducer(movieDetailReducer, initDetail);
 
+  function formatDate() {
+    let currentDate = currentMovie.release_date.split("-");
+    let [year, month, day] = currentDate;
+
+    function formatMonth(month) {
+      return Number(month) >= 10 ? month : month.slice(1);
+    }
+
+    const months = [
+      "skip-this-month",
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    return `${months[formatMonth(month)]}  ${day}, ${year}`;
+  }
+
   // use the passed in prop currentId to fetch the correct trailer
   useEffect(() => {
     async function fetchTrailer() {
@@ -78,43 +105,28 @@ const Detail = (props) => {
           <div className="errorMessage">{trailer.errorMessage}</div>
         ) : (
           // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-          <div className="poster-container">
+          <div className="details-container">
             <div
               className="poster"
               style={{
                 backgroundImage: `url(${poster})`,
                 backgroundRepeat: "no-repeat",
-                backgroundPosition: "top",
                 backgroundSize: "cover",
-                height: "100%",
-                width: "100%",
-                position: "absolute",
-                top: "0",
-                left: "0",
-                zIndex: "-1",
-                opacity: ".65",
+                opacity: ".7",
               }}
-            >
-              {/* <img
-                src={poster}
-                alt={currentMovie.original_title}
-                className="trailer-image"
-              /> */}
-            </div>
-            <div className="details-container">
-              {TrailersDisplay()}
-              <div className="details">
-                <h1>{currentMovie.original_title}</h1>
-                <h1>{currentMovie.release_date}</h1>
-                <p>{currentMovie.overview}</p>
+            ></div>
+            <div className="details">
+              <div className="details-heading">
+                <h1 className="details-title">{currentMovie.original_title}</h1>
+                <p className="details-date">Release Date: {formatDate()}</p>
               </div>
-              <div className="play-button-container">
-                <button className="play-button">Play Movie</button>
-                <Link to="/">
-                  <p className="return">Return Home</p>
-                </Link>
-              </div>
+              <p className="overview">{currentMovie.overview}</p>
+              <button className="play-button">Play</button>
+              <Link to="/" className="return">
+                <p>Return Home</p>
+              </Link>
             </div>
+            {TrailersDisplay()}
           </div>
         )}
       </div>
