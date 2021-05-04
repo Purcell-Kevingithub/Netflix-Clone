@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: #ee3424;
+}
+
 a {
   color: white;
   font-size: 0.8em;
@@ -16,7 +20,7 @@ html {
 }
 
 button {
-  background-color: #e50914;
+  background-color: var(--primary-color);
 }
 
 /* ####----------------- Header Component------------  #### */
@@ -75,7 +79,7 @@ button {
 
 .search button:hover {
   color: white;
-  background-color: #e50914;
+  background-color: var(--primary-color);
 }
 
 .search button:active,
@@ -118,7 +122,7 @@ button {
 }
 
 .genre p {
-  color: #e50914;
+  color: var(--primary-color);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding-top: 50px;
@@ -143,7 +147,7 @@ button {
 .slick-prev:before,
 .slick-next:before {
   font-size: 40px !important;
-  color: #e50914 !important;
+  color: var(--primary-color) !important;
   /* padding-right: 20px; */
 }
 
@@ -232,8 +236,8 @@ button {
   z-index: 3;
   transition: all 0.2s linear;
   font-size: 25px;
-  color: #e50914;
-  border: 1px solid #e50914;
+  color: var(--primary-color);
+  border: 1px solid #ee3424;
   background-color: transparent;
   cursor: pointer;
   border-radius: 7px;
@@ -244,7 +248,7 @@ button {
 
 .details button:hover {
   color: white;
-  background-color: #e50914;
+  background-color: var(--primary-color);
 }
 
 .details button:active,
@@ -252,11 +256,17 @@ button {
   transform: scale(0.95);
 }
 
+.details .playIcon {
+  margin-right: 6px;
+  /* as padding increases icon shrinks */
+  padding: 1px;
+}
+
 .details .return {
   margin-left: auto;
   z-index: 3;
   text-decoration: none;
-  color: #e50914;
+  color: var(--primary-color);
   cursor: pointer;
   display: inline-block;
   transition: all 0.3s linear;
@@ -266,8 +276,8 @@ button {
 }
 
 .details .return:hover {
-  color: #e50914;
-  border-bottom: 1px solid #e50914;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -304,8 +314,8 @@ button {
 }
 
 .no-match a:hover {
-  color: #e50914;
-  border-bottom: 1px solid #e50914;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
   transform: translateY(-2px);
 }
 
@@ -542,7 +552,7 @@ button {
   /* ---------------------------no match----------------- */
   .no-match p {
     font-style: italic;
-    color: #e50914;
+    color: var(--primary-color);
     font-size: 1.2em;
     margin-top: 1.2em;
     float: none;

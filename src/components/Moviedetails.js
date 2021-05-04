@@ -5,6 +5,9 @@ import placeholder from "../images/comingsoon.png";
 import TMDB_KEY from "../apis/Apikey";
 import "../css/App.css";
 
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Detail = (props) => {
   const currentMovie = props.location.state.movie;
   const currentId = props.location.state.movie.id;
@@ -121,7 +124,10 @@ const Detail = (props) => {
                 <p className="details-date">Release Date: {formatDate()}</p>
               </div>
               <p className="overview">{currentMovie.overview}</p>
-              <button className="play-button">Play</button>
+              <button className="play-button">
+                <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
+                Play
+              </button>
               <Link to="/" className="return">
                 <p>Return Home</p>
               </Link>
