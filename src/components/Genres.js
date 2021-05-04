@@ -9,6 +9,8 @@ import {
   SCIFI_POPULAR_URL,
 } from "../apis/endPoints";
 import * as Reducers from "../reducers/Reducers";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 const Genres = () => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request.
@@ -37,6 +39,7 @@ const Genres = () => {
     Reducers.scifiReducer,
     Reducers.initScifi
   );
+
   // This mimics life cycle componentDidMount and componentDidUpdate. We can make api requests and then dispatch
   // state from reducers. This only dispatches for success and brings back the api request from the search typed.
   useEffect(() => {
@@ -107,7 +110,9 @@ const Genres = () => {
       <div className="genre-grid">
         {/* If loading and no error show loading message */}
         {currentState.loading && !currentState.errorMessage ? (
-          <span>loading... </span>
+          <div className="loader-container">
+            <Loader type="TailSpin" color="#ee3424" height={80} width={80} />
+          </div>
         ) : // if there is an error messge display it
         currentState.errorMessage ? (
           <div className="errorMessage">{currentState.errorMessage}</div>
