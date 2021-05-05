@@ -115,7 +115,7 @@ const Detail = (props) => {
                 backgroundImage: `url(${poster})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                opacity: ".7",
+                opacity: ".6",
               }}
             ></div>
             <div className="details">
