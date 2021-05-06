@@ -127,7 +127,7 @@ button {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding-top: 50px;
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .movie img {
@@ -388,7 +388,7 @@ button {
 
 /* #### ------------Media Queries -------------------------####*/
 
-/* --------------------------------EXTRA--lARGE ----------------------------------------------------------------- */
+/* --------------------------------EXTRA--lARGE ----------------------------------------------------------- */
 @media only screen and (max-width: 1400px) {
   .netflix-container {
     width: 18vw;
@@ -413,7 +413,7 @@ button {
   }
 }
 
-/* --------------------------------Medium Large ----------------------------------------------------------------- */
+/* --------------------------------Medium Large ----------------------------------------------------------- */
 @media only screen and (max-width: 1250px) {
   /* ---------------------Details Component---------------------  */
   .details-container {
@@ -442,12 +442,23 @@ button {
 
 /* --------------------------------lARGE ----------------------------------------------------------------- */
 @media only screen and (max-width: 1200px) {
-  /* ---------------------Header Component---------------------  */
+  /* ---------------------Header Component----------  */
   .netflix-container {
     width: 22vw;
   }
 
-  /* ----------------Search Component------------------ */
+  /* ---------------Genre Component--------------- ---- */
+  .genre p {
+    font-size: 28px;
+  }
+
+  /*--------------------------- Slider Component----- */
+
+  .slick-next {
+    left: 99% !important;
+  }
+
+  /* ----------------Search Component--------------- */
   .search {
     height: 40px;
   }
@@ -461,12 +472,12 @@ button {
     font-size: 13px;
   }
 
-  /* ---------------------Details Component---------------------  */
+  /* ---------------------Details Component---------  */
   .details .details-title {
     font-size: 28px;
   }
 
-  /* ----------------Footer Component------------------ */
+  /* ----------------Footer Component---------------- */
 
   .footer {
     font-size: 20px;
@@ -476,10 +487,12 @@ button {
 /* --------------------------------MEDIUM ----------------------------------------------------------------- */
 
 @media only screen and (max-width: 1000px) {
+  /* ---------------------Header Component-----------  */
   .netflix-container {
     width: 30vw;
   }
 
+  /* ----------------Search Component------------------ */
   .search-container {
     transform: translate(-25%, -50%);
   }
@@ -487,19 +500,34 @@ button {
 
 /* --------------------------------SMALL ----------------------------------------------------------------- */
 @media only screen and (max-width: 850px) {
+  /* ---------------------Header Component---------------  */
   .netflix-container {
     width: 34vw;
   }
 
+  /* ----------------Search Component------------------ */
   .search-container {
     transform: translate(-25%, -50%);
     width: 50%;
   }
+
+  /*--------------------------- Slider Component------ */
+
+  .genre-grid {
+    width: 80%;
+  }
+
+  .slick-next {
+    left: 98% !important;
+  }
+  .slick-prev {
+    left: -4% !important;
+  }
 }
 
-/* ---------------------------- MOBILE-----------------------------------------------------------*/
+/* --------------------------------Mobile ----------------------------------------------------------------- */
 @media only screen and (max-width: 700px) {
-  /* ---------------------Header Component---------------------  */
+  /* ---------------------Header Component-------------  */
 
   .App-header {
     display: flex;
@@ -542,7 +570,16 @@ button {
     font-size: 11px;
   }
 
-  /* ------------------------Slider ------------------------- */
+  /* ---------------Genre Component--------------- ---- */
+  .genre p {
+    font-size: 25px;
+  }
+
+  /* ------------------------Slider --------------------- */
+
+  .slick-prev {
+    left: -5% !important;
+  }
 
   /*--------------------------  Results------------------ */
 
@@ -578,9 +615,23 @@ button {
 
   /* ---------------------------no match----------------- */
 
-  /* ----------------Footer Component------------------ */
+  /* ----------------Footer Component-------------------- */
 
   .footer {
     font-size: 16px;
+  }
+}
+
+/* --------------------------------Mobile Small------------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+  /* ------------------------Slider --------------------- */
+
+  .slick-prev {
+    left: -7% !important;
+  }
+
+  /* ---------------Genre Component--------------- ---- */
+  .genre p {
+    font-size: 22px;
   }
 }

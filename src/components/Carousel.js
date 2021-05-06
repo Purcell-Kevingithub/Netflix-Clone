@@ -21,14 +21,10 @@ const MySlider = (props) => {
         },
       },
       {
-        breakpoint: 480, // mobile breakpoint
+        breakpoint: 700, // mobile breakpoint
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 2,
-          prevArrow: false,
-          nextArrow: false,
-          dots: true,
-          centerMode: true,
         },
       },
     ],
