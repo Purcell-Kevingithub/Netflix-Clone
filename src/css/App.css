@@ -652,3 +652,11 @@ button {
     font-size: 22px;
   }
 }
+
+/* --------------------------------Mobile Tiny------------------------------------------------------------- */
+
+@media only screen and (max-width: 450px) {
+  .slick-prev {
+    left: -10% !important;
+  }
+}
