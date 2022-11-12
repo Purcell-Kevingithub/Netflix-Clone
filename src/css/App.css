@@ -69,16 +69,16 @@ button {
   font-size: 15px;
   position: absolute;
   color: white;
-  border: 1px solid white;
+  border: 1px solid black;
   width: 80px;
   height: 100%;
   background-color: var(--primary-color);
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 5px;
 }
 
 .search button:hover {
-  border: 1px solid var(--primary-color);
+  /* border: 1px solid var(--primary-color); */
   color: var(--primary-color);
   background-color: #fff;
 }
@@ -93,7 +93,8 @@ button {
   height: 100%;
   width: 100%;
   font-size: 15px;
-  border-radius: 7px;
+  border-radius: 5px;
+  border-color: #030303;
   font-family: inherit;
 }
 
@@ -415,6 +416,7 @@ button {
 
 /* --------------------------------Medium Large ----------------------------------------------------------- */
 @media only screen and (max-width: 1250px) {
+
   /* ---------------------Details Component---------------------  */
   .details-container {
     display: grid;
@@ -442,6 +444,7 @@ button {
 
 /* --------------------------------lARGE ----------------------------------------------------------------- */
 @media only screen and (max-width: 1200px) {
+
   /* ---------------------Header Component----------  */
   .netflix-container {
     width: 22vw;
@@ -487,6 +490,7 @@ button {
 /* --------------------------------MEDIUM ----------------------------------------------------------------- */
 
 @media only screen and (max-width: 1000px) {
+
   /* ---------------------Header Component-----------  */
   .netflix-container {
     width: 30vw;
@@ -500,6 +504,7 @@ button {
 
 /* --------------------------------SMALL ----------------------------------------------------------------- */
 @media only screen and (max-width: 850px) {
+
   /* ---------------------Header Component---------------  */
   .netflix-container {
     width: 34vw;
@@ -520,6 +525,7 @@ button {
   .slick-next {
     left: 98% !important;
   }
+
   .slick-prev {
     left: -4% !important;
   }
