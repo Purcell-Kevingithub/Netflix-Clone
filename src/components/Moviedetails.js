@@ -2,7 +2,6 @@ import React, { useReducer, useEffect } from "react";
 import { movieDetailReducer, initDetail } from "../reducers/Reducers";
 import { Link } from "react-router-dom";
 import placeholder from "../images/comingsoon.png";
-import TMDB_KEY from "../apis/Apikey";
 import "../css/App.css";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
@@ -45,7 +44,7 @@ const Detail = (props) => {
     async function fetchTrailer() {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${TMDB_KEY}&language=en-US`
+          `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${process.env.REACT_APP_API_KEY}& language=en - US`
         );
         const json = await response.json();
 
@@ -104,37 +103,37 @@ const Detail = (props) => {
         {trailer.loading && !trailer.errorMessage ? (
           <span>loading... </span>
         ) : // if there is an error messge display it
-        trailer.errorMessage ? (
-          <div className="errorMessage">{trailer.errorMessage}</div>
-        ) : (
-          // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-          <div className="details-container">
-            <div
-              className="poster"
-              style={{
-                backgroundImage: `url(${poster})`,
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                opacity: ".6",
-              }}
-            ></div>
-            <div className="details">
-              <div className="details-heading">
-                <h1 className="details-title">{currentMovie.original_title}</h1>
-                <p className="details-date">Release Date: {formatDate()}</p>
+          trailer.errorMessage ? (
+            <div className="errorMessage">{trailer.errorMessage}</div>
+          ) : (
+            // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
+            <div className="details-container">
+              <div
+                className="poster"
+                style={{
+                  backgroundImage: `url(${poster})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "cover",
+                  opacity: ".6",
+                }}
+              ></div>
+              <div className="details">
+                <div className="details-heading">
+                  <h1 className="details-title">{currentMovie.original_title}</h1>
+                  <p className="details-date">Release Date: {formatDate()}</p>
+                </div>
+                <p className="overview">{currentMovie.overview}</p>
+                <button className="play-button">
+                  <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
+                  Play
+                </button>
+                <Link to="/" className="return">
+                  <p>Return Home</p>
+                </Link>
               </div>
-              <p className="overview">{currentMovie.overview}</p>
-              <button className="play-button">
-                <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
-                Play
-              </button>
-              <Link to="/" className="return">
-                <p>Return Home</p>
-              </Link>
+              {TrailersDisplay()}
             </div>
-            {TrailersDisplay()}
-          </div>
-        )}
+          )}
       </div>
     );
   };

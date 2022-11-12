@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import TMDB_KEY from "../apis/Apikey";
 import "../css/App.css";
 import Header from "./Header";
 import Genres from "./Genres";
@@ -31,7 +30,7 @@ const App = () => {
     });
     // Here the value is passed as argument to this function from the search components is fetched.
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchValue}&page=1&include_adult=false`
     )
       .then((response) => {
         if (response.ok === true) {
