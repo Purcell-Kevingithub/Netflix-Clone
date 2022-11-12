@@ -107,31 +107,28 @@ const Detail = (props) => {
             <div className="errorMessage">{trailer.errorMessage}</div>
           ) : (
             // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-            <div className="details-container">
-              <div
-                className="poster"
-                style={{
-                  backgroundImage: `url(${poster})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                  opacity: ".6",
-                }}
-              ></div>
-              <div className="details">
-                <div className="details-heading">
-                  <h1 className="details-title">{currentMovie.original_title}</h1>
-                  <p className="details-date">Release Date: {formatDate()}</p>
+            <div className="details-container" style={{
+              backgroundImage: `url(${poster})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}>
+              <div className="details_trailer_container">
+                <div className="details">
+                  <div className="details-heading">
+                    <h1 className="details-title">{currentMovie.original_title}</h1>
+                    <p className="details-date">Release Date: {formatDate()}</p>
+                  </div>
+                  <p className="overview">{currentMovie.overview}</p>
+                  <button className="play-button">
+                    <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
+                    Play
+                  </button>
                 </div>
-                <p className="overview">{currentMovie.overview}</p>
-                <button className="play-button">
-                  <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
-                  Play
-                </button>
-                <Link to="/" className="return">
-                  <p>Return Home</p>
-                </Link>
+                {TrailersDisplay()}
               </div>
-              {TrailersDisplay()}
+              <Link to="/" className="return">
+                <p>Return Home</p>
+              </Link>
             </div>
           )}
       </div>
