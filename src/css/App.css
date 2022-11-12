@@ -7,6 +7,7 @@
 
 :root {
   --primary-color: #ee3424;
+  --primary-font: 'Poppins', sans-serif;
 }
 
 a {
@@ -15,12 +16,12 @@ a {
 }
 
 html {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: var(--primary-color);
 }
 
 button {
   background-color: var(--primary-color);
+  font-family: var(--primary-font);
 }
 
 /* ####----------------- Header Component------------  #### */
@@ -64,7 +65,7 @@ button {
 }
 
 .search button {
-  font-family: inherit;
+  font-family: var(--primary-font);
   transition: all 0.2s linear;
   font-size: 15px;
   position: absolute;
@@ -85,7 +86,7 @@ button {
 
 .search button:active,
 .search button:visited {
-  transform: scale(0.95);
+  transform: scale(.9);
 }
 
 .search input {
@@ -95,7 +96,7 @@ button {
   font-size: 15px;
   border-radius: 5px;
   border-color: #030303;
-  font-family: inherit;
+  font-family: var(--primary-font);
 }
 
 .search input:focus {
@@ -125,10 +126,12 @@ button {
 
 .genre p {
   color: var(--primary-color);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   padding-top: 50px;
   font-size: 32px;
+}
+
+.genre-title {
+  font-family: var(--primary-font);
 }
 
 .movie img {
@@ -368,13 +371,14 @@ button {
 /* #### ------------Footer Component -------------------------####*/
 
 .footer {
+  font-family: var(--primary-font);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #030303;
   color: #fff;
   height: 13vh;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 /* #### ------------Spinner Component -------------------------####*/
@@ -483,7 +487,7 @@ button {
   /* ----------------Footer Component---------------- */
 
   .footer {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -656,6 +660,10 @@ button {
   /* ---------------Genre Component--------------- ---- */
   .genre p {
     font-size: 22px;
+  }
+
+  .footer {
+    font-size: 12px;
   }
 }
 
