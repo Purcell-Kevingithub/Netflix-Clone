@@ -1,0 +1,115 @@
+.genres {
+    background-image: linear-gradient(to right, #f5f5f5 45%, #606060);
+}
+
+.genre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.genre:last-child {
+    padding-bottom: 50px;
+}
+
+.genre-grid {
+    width: 90%;
+}
+
+.genre p {
+    color: var(--primary-color);
+    padding-top: 50px;
+    font-size: 32px;
+}
+
+.genre-title {
+    font-family: var(--primary-font);
+}
+
+.movie img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-out, box-shadow 0.5s ease-out;
+    transform: scale(0.85);
+}
+
+.movie img:hover {
+    transform: scale(1);
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* both arrows */
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px !important;
+    color: var(--primary-color) !important;
+    /* padding-right: 20px; */
+}
+
+.slick-prev {
+    left: -3% !important;
+}
+
+.slick-next {
+    left: 101% !important;
+}
+
+
+/* --------------------------------lARGE ----------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+    .genre p {
+        font-size: 28px;
+    }
+
+    .slick-next {
+        left: 99% !important;
+    }
+}
+
+/* --------------------------------SMALL ----------------------------------------------------------------- */
+@media only screen and (max-width: 850px) {
+    .genre-grid {
+        width: 80%;
+    }
+
+    .slick-next {
+        left: 98% !important;
+    }
+
+    .slick-prev {
+        left: -4% !important;
+    }
+
+}
+
+/* --------------------------------Mobile ----------------------------------------------------------------- */
+@media only screen and (max-width: 700px) {
+    .genre p {
+        font-size: 25px;
+    }
+
+    .slick-prev {
+        left: -5% !important;
+    }
+}
+
+/* --------------------------------Mobile Small------------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+    .slick-prev {
+        left: -7% !important;
+    }
+
+    /* ---------------Genre Component--------------- ---- */
+    .genre p {
+        font-size: 22px;
+    }
+}
+
+/* --------------------------------Mobile Tiny------------------------------------------------------------- */
+
+@media only screen and (max-width: 450px) {
+    .slick-prev {
+        left: -10% !important;
+    }
+}
