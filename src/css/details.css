@@ -1,16 +1,6 @@
-/*----------------------- Movies Details----------------------- */
-.trailer {
-    width: 500px;
+.details-wrapper {
+    height: 75vh;
 }
-
-.trailer iframe {
-    max-width: 500px;
-    min-height: 300px;
-    height: 100%;
-    width: 100%;
-    border: none;
-}
-
 
 .details {
     position: relative;
@@ -20,53 +10,61 @@
     align-items: center;
     color: #fff;
     z-index: 3;
-    padding: 30px;
     width: 100%;
     font-family: var(--primary-font);
     max-width: 500px;
     height: 100%;
-    width: 500px;
+    padding: 10px;
 }
 
 .details::after {
     content: "";
     background-color: black;
-    height: 300px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
     opacity: 0.8;
     position: absolute;
     border-radius: 1px;
     z-index: -1;
 }
 
-.details_trailer_container {
+.content-wrapper {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: inherit;
+    justify-content: center;
+    height: 100%;
 }
 
-.details .overview {
+.details-trailer-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.overview {
     font-size: 13px;
 }
 
-.details .details-heading {
+.details-heading {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
 
-.details .details-title {
+.details-title {
     margin-right: auto;
     font-size: 32px;
 }
 
-.details .details-date {
+.details-date {
     margin-right: auto;
     font-size: 14px;
     padding-bottom: 20px;
 }
 
-.details-container .play-button {
+.play-button {
     z-index: 3;
     transition: all 0.2s linear;
     font-size: 25px;
@@ -80,98 +78,113 @@
     margin-bottom: 20px;
 }
 
-.details button:hover {
+button:hover {
     color: var(--primary-color);
     background-color: #fff;
 }
 
-.details button:active,
-.details button:visited {
+button:active,
+button:visited {
     transform: scale(0.95);
 }
 
-.details .playIcon {
+.playIcon {
     margin-right: 6px;
     /* as padding increases icon shrinks */
     padding: 1px;
 }
 
-.details .return {
-    margin-left: auto;
+.return {
     z-index: 3;
+    font-family: var(--primary-font);
     text-decoration: none;
-    color: #fff;
     cursor: pointer;
     display: inline-block;
     transition: all 0.2s linear;
     font-size: 20px;
-    border-bottom: 1px solid transparent;
     display: flex;
+    justify-content: center;
+    position: relative;
+    width: 250px;
+    margin: 60px auto;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 3px;
 }
 
-.details .return:hover {
+.return:hover {
     color: var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    transform: translateY(-2px);
+    background-color: #fff;
 }
 
-.details .return:after {
-    content: "\21E8";
-    margin-left: 10px;
+
+
+
+.trailer {
+    width: 500px;
+}
+
+.trailer iframe {
+    max-width: 500px;
+    min-height: 300px;
+    height: 100%;
+    width: 100%;
+    border: none;
 }
 
 /* --------------------------------EXTRA--lARGE ----------------------------------------------------------- */
 @media only screen and (max-width: 1400px) {
 
 
-    .details .details-date {
+    .details-date {
         margin-right: auto;
         font-size: 12px;
         padding-bottom: 20px;
     }
 
-    .details .overview {
+    .overview {
         font-size: 11px;
     }
 
-    .details-container .play-button {
+    .play-button {
         font-size: 23px;
     }
 
-    .details .return {
+    .return {
         font-size: 18px;
     }
 }
 
-@media only screen and (max-width: 1250px) {
-    .details-container {
-        display: block;
-    }
-}
 
 /* --------------------------------lARGE ----------------------------------------------------------------- */
 @media only screen and (max-width: 1200px) {
-    .details .details-title {
+    .details-title {
         font-size: 28px;
+    }
+
+
+}
+
+@media only screen and (max-width: 1100px) {
+    .details-trailer-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
 /* --------------------------------Mobile ----------------------------------------------------------------- */
 @media only screen and (max-width: 700px) {
-    .details-container {
-        height: 100vh;
-    }
 
-    .details-container .play-button {
+    .play-button {
         font-size: 20px;
         padding: 12px 60px;
     }
 
-    .details-container .return {
+    .return {
         font-size: 15px;
     }
 
-    .details .details-title {
+    .details-title {
         font-size: 24px;
     }
 }

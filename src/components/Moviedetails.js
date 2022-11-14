@@ -71,19 +71,20 @@ const Detail = (props) => {
 
   const renderDetails = () => {
     return (
-      <div>
+      <div style={{
+        backgroundImage: `url(${poster})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        height: "90vh",
+      }}>
         {trailer?.loading && !trailer?.errorMessage ? (
           <span>loading... </span>
         ) :
           trailer?.errorMessage ? (
             <div className="errorMessage">{trailer?.errorMessage}</div>
           ) : (
-            <div className="details-container" style={{
-              backgroundImage: `url(${poster})`,
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}>
-              <div className="details_trailer_container">
+            <div className="content-wrapper">
+              <div className="details-trailer-container">
                 <div className="details">
                   <div className="details-heading">
                     <h1 className="details-title">{currentMovie?.original_title}</h1>
