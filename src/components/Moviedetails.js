@@ -75,7 +75,7 @@ const Detail = (props) => {
         backgroundImage: `url(${poster})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        height: "90vh",
+        height: "100%",
       }}>
         {trailer?.loading && !trailer?.errorMessage ? (
           <span>loading... </span>
@@ -99,7 +99,7 @@ const Detail = (props) => {
                 {TrailersDisplay()}
               </div>
               <Link to="/" className="return">
-                <p>Return Home</p>
+                Return Home <span className="return-icon"><i class="fa fa-home"></i></span>
               </Link>
             </div>
           )}

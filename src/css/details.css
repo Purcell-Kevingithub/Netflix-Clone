@@ -1,6 +1,12 @@
-.details-wrapper {
-    height: 75vh;
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    justify-content: flex-start;
+    min-height: 75vh;
 }
+
+
 
 .details {
     position: relative;
@@ -28,18 +34,11 @@
     z-index: -1;
 }
 
-.content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: inherit;
-    justify-content: center;
-    height: 100%;
-}
+
 
 .details-trailer-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
 }
 
 .overview {
@@ -66,7 +65,6 @@
 
 .play-button {
     z-index: 3;
-    transition: all 0.2s linear;
     font-size: 25px;
     color: #fff;
     border: 1px solid transparent;
@@ -100,21 +98,28 @@ button:visited {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
-    transition: all 0.2s linear;
-    font-size: 20px;
     display: flex;
     justify-content: center;
+    font-size: 20px;
     position: relative;
-    width: 250px;
     margin: 60px auto;
     background-color: var(--primary-color);
-    color: #fff;
+    color: black;
     border-radius: 3px;
+    padding: 10px 12px;
 }
 
 .return:hover {
-    color: var(--primary-color);
-    background-color: #fff;
+    color: white;
+}
+
+.return:active,
+.return:visited {
+    transform: scale(.9);
+}
+
+.return-icon {
+    padding-left: 5px;
 }
 
 
