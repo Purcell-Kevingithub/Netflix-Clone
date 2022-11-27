@@ -79,13 +79,13 @@
     margin-bottom: 20px;
 }
 
-button:hover {
+.play-button:hover {
     color: var(--primary-color);
     background-color: #fff;
 }
 
-button:active,
-button:visited {
+.play-button:active,
+.play-button:visited {
     transform: scale(0.95);
 }
 
