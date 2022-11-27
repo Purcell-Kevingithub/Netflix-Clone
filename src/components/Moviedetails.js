@@ -71,43 +71,56 @@ const Detail = (props) => {
 
   const renderDetails = () => {
     return (
-      <div style={{
-        backgroundImage: `url(${poster})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        height: "100%",
-      }}>
-        {trailer?.loading && !trailer?.errorMessage ? (
-          <span>loading... </span>
-        ) :
-          trailer?.errorMessage ? (
-            <div className="errorMessage">{trailer?.errorMessage}</div>
-          ) : (
-            <div className="content-wrapper">
-              <div className="details-trailer-container">
-                <div className="details">
-                  <div className="details-heading">
-                    <h1 className="details-title">{currentMovie?.original_title}</h1>
-                    <p className="details-date">Release Date: {formattedDate}</p>
+      <div className="content-wrapper">
+        <div className="before" style={{
+          content: "",
+          position: "absolute",
+          left: "0",
+          right: "0",
+          zIndex: "-1",
+          display: "block",
+          backgroundImage: `url(${poster})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width: '100%',
+          height: '100%',
+          filter: 'brightness(0.5)',
+        }}></div>
+        <div className="after">
+          {trailer?.loading && !trailer?.errorMessage ? (
+            <span>loading... </span>
+          ) :
+            trailer?.errorMessage ? (
+              <div className="errorMessage">{trailer?.errorMessage}</div>
+            ) : (
+              <>
+                <div className="details-trailer-container">
+                  <div className="details">
+                    <div className="details-heading">
+                      <h1 className="details-title">{currentMovie?.original_title}</h1>
+                      <p className="details-date">Release Date: {formattedDate}</p>
+                    </div>
+                    <p className="overview">{currentMovie?.overview}</p>
+                    <button className="play-button">
+                      <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
+                      Play
+                    </button>
                   </div>
-                  <p className="overview">{currentMovie?.overview}</p>
-                  <button className="play-button">
-                    <FontAwesomeIcon icon={faPlay} size="sm" className="playIcon" />
-                    Play
-                  </button>
+                  {TrailersDisplay()}
                 </div>
-                {TrailersDisplay()}
-              </div>
-              <Link to="/" className="return">
-                Return Home <span className="return-icon"><i class="fa fa-home"></i></span>
-              </Link>
-            </div>
-          )}
+                <div className="return-container">
+                  <Link to="/" className="return">
+                    Return Home <span className="return-icon"><i class="fa fa-home"></i></span>
+                  </Link>
+                </div>
+              </>
+            )}
+        </div>
       </div>
     );
   };
 
   return renderDetails()
-};
+}
 
-export default Detail;
+export default Detail
