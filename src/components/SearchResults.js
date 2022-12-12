@@ -6,7 +6,7 @@ const SearchResults = ({ results }) => {
   // array of results from search
   const movies = results.search;
   const renderResults = () => {
-    return movies.map((movie, index) => {
+    return movies?.map((movie, index) => {
       const poster =
         movie.poster_path === null
           ? placeholder

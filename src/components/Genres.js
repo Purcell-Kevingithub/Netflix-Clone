@@ -16,27 +16,28 @@ const Genres = () => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request.
   // This is a more complicated state object.
   const [state, dispatch] = useReducer(
-    Reducers.movieReducer,
+    Reducers.genreReducer,
     Reducers.initialState
   );
+
   const [comedyState, comedydispatch] = useReducer(
-    Reducers.comedyReducer,
+    Reducers.genreReducer,
     Reducers.initComedy
   );
   const [hmState, horrorMysterydispatch] = useReducer(
-    Reducers.hmReducer,
+    Reducers.genreReducer,
     Reducers.inithm
   );
   const [documentaryState, documentaryDispatch] = useReducer(
-    Reducers.documentaryReducer,
+    Reducers.genreReducer,
     Reducers.initDocumentary
   );
   const [romanceState, romanceDispatch] = useReducer(
-    Reducers.romanceReducer,
+    Reducers.genreReducer,
     Reducers.initRomance
   );
   const [scifiState, ScifiDispatch] = useReducer(
-    Reducers.scifiReducer,
+    Reducers.genreReducer,
     Reducers.initScifi
   );
 
@@ -114,12 +115,12 @@ const Genres = () => {
             <Loader type="TailSpin" color="#ee3424" height={80} width={80} />
           </div>
         ) : // if there is an error messge display it
-        currentState.errorMessage ? (
-          <div className="errorMessage">{currentState.errorMessage}</div>
-        ) : (
-          // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
-          <Myslider movieArr={currentState.movies} />
-        )}
+          currentState.errorMessage ? (
+            <div className="errorMessage">{currentState.errorMessage}</div>
+          ) : (
+            // This is the final case where not loading or an error. Movie payload is mapped over for each result and passed down as a movie prop
+            <Myslider movieArr={currentState.movies} />
+          )}
       </div>
     );
   };

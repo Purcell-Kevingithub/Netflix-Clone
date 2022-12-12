@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { movieDetailReducer, initDetail } from "../reducers/Reducers";
+import { detailsReducer, initDetail } from "../reducers/Reducers";
 import { Link } from "react-router-dom";
 import placeholder from "../images/comingsoon.png";
 import "../css/App.css";
@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Detail = (props) => {
   const currentMovie = props?.location?.state?.movie;
   const currentId = props?.location?.state?.movie?.id;
-  const [trailer, trailerDispatch] = useReducer(movieDetailReducer, initDetail);
+  const [trailer, trailerDispatch] = useReducer(detailsReducer, initDetail);
 
   const releaseDate = currentMovie?.release_date
   const formattedDate = dateFormat(releaseDate, "longDate",);
@@ -24,6 +24,7 @@ const Detail = (props) => {
         const response = await fetch(
           `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${process.env.REACT_APP_API_KEY}& language=en - US`
         );
+        console.log("🚀 ~ file: Moviedetails.js ~ line 28 ~ fetchTrailer ~ response", response)
         const json = await response.json();
 
         if (response.ok === true) {

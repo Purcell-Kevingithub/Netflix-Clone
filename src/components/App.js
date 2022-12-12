@@ -5,7 +5,7 @@ import Genres from "./Genres";
 import Detail from "./Moviedetails";
 import NoMatchPage from "./NoMatchPage";
 import Footer from "./Footer";
-import * as Reducers from "../reducers/Reducers";
+import { genreReducer, initSearch } from "../reducers/Reducers";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,8 +17,8 @@ import SearchResults from "./SearchResults";
 // This is the main functional component where everything is attached.
 const App = () => {
   const [searchState, searchDispatch] = useReducer(
-    Reducers.searchReducer,
-    Reducers.initSearch
+    genreReducer,
+    initSearch
   );
 
   // This search function is passed down as a prop to the child components search. This function is then ran in

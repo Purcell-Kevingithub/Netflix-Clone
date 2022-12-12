@@ -1,4 +1,4 @@
-function createGenreInitialState() {
+function createInitialState() {
   return {
     loading: true,
     movies: [],
@@ -6,20 +6,19 @@ function createGenreInitialState() {
   }
 }
 
-// initialize state
-export const initialState = createGenreInitialState();
-export const initComedy = createGenreInitialState();
-export const inithm = createGenreInitialState();
-export const initDocumentary = createGenreInitialState();
-export const initRomance = createGenreInitialState();
-export const initScifi = createGenreInitialState();
-export const initDetail = createGenreInitialState();
-export const initSearch = createGenreInitialState();
+// initialize genre states
+export const initialState = createInitialState();
+export const initComedy = createInitialState();
+export const inithm = createInitialState();
+export const initDocumentary = createInitialState();
+export const initRomance = createInitialState();
+export const initScifi = createInitialState();
+export const initDetail = createInitialState();
+export const initSearch = createInitialState();
 
 
-// Reducer updates state based on switch case. Movies_Request updates state for loading, Movies_Success updates movies aray with data, and
-// Movies_Failure updates errorMessage.
-export const movieReducer = (state, action) => {
+// Reducer updates state based on switch case which covers inital request, success, and failure.
+export function genreReducer(state, action) {
   switch (action.type) {
     case "SEARCH_MOVIES_REQUEST":
       return {
@@ -42,132 +41,9 @@ export const movieReducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
-export const comedyReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
-
-export const hmReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
-
-export const documentaryReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
-export const romanceReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
-export const scifiReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        movies: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
-
-export const movieDetailReducer = (state, action) => {
+export const detailsReducer = (state, action) => {
   switch (action.type) {
     case "SEARCH_DETAILS_REQUEST":
       return {
@@ -192,27 +68,3 @@ export const movieDetailReducer = (state, action) => {
   }
 };
 
-export const searchReducer = (state, action) => {
-  switch (action.type) {
-    case "SEARCH_MOVIES_REQUEST":
-      return {
-        ...state,
-        loading: true,
-        errorMessage: null,
-      };
-    case "SEARCH_MOVIES_SUCCESS":
-      return {
-        ...state,
-        loading: false,
-        search: action.payload,
-      };
-    case "SEARCH_MOVIES_FAILURE":
-      return {
-        ...state,
-        loading: false,
-        errorMessage: action.error,
-      };
-    default:
-      return state;
-  }
-};
