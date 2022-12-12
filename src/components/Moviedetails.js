@@ -55,10 +55,13 @@ const Detail = (props) => {
       ? placeholder
       : `https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`;
 
+
+
+
   const TrailersDisplay = () => {
     return (
       <div className="trailer">
-        {trailer?.details.length > 0 && trailer.details.map((video) => {
+        {trailer?.details?.[0] && trailer?.details?.map((video) => {
           return (
             <iframe
               key={video.id}
