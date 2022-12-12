@@ -1,5 +1,8 @@
-import Myslider from "./Carousel";
 import React, { useReducer, useEffect } from "react";
+import Loader from "react-loader-spinner";
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 import {
   MOVIE_POPULAR_URL,
   COMEDY_POPULAR_URL,
@@ -9,8 +12,9 @@ import {
   SCIFI_POPULAR_URL,
 } from "../apis/endPoints";
 import * as Reducers from "../reducers/Reducers";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+import Myslider from "./Carousel";
+
+
 
 const Genres = () => {
   // Init state with useReducer instead of useState becasue allows dispatch calls for each fetch request.

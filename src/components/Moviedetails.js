@@ -1,12 +1,16 @@
 import React, { useReducer, useEffect } from "react";
-import { detailsReducer, initDetail } from "../reducers/Reducers";
 import { Link } from "react-router-dom";
-import placeholder from "../images/comingsoon.png";
-import "../css/App.css";
-import dateFormat from "dateformat"
 
+import dateFormat from "dateformat"
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import "../css/App.css";
+import placeholder from "../images/comingsoon.png";
+import { detailsReducer, initDetail } from "../reducers/Reducers";
+
+
+
 
 const Detail = (props) => {
   const currentMovie = props?.location?.state?.movie;

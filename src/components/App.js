@@ -1,17 +1,19 @@
 import React, { useReducer } from "react";
-import "../css/App.css";
-import Header from "./Header";
-import Genres from "./Genres";
-import Detail from "./Moviedetails";
-import NoMatchPage from "./NoMatchPage";
-import Footer from "./Footer";
-import { genreReducer, initSearch } from "../reducers/Reducers";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
 } from "react-router-dom";
+
+import "../css/App.css";
+import { genreReducer, initSearch } from "../reducers/Reducers";
+
+import Header from "./Header";
+import Genres from "./Genres";
+import Detail from "./Moviedetails";
+import NoMatchPage from "./NoMatchPage";
+import Footer from "./Footer";
 import SearchResults from "./SearchResults";
 
 // This is the main functional component where everything is attached.

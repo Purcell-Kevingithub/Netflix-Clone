@@ -1,11 +1,12 @@
 import React from "react";
-import "../css/App.css";
+import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import "../css/App.css";
 import Movie from "./Movie";
 
-import Slider from "react-slick";
 
 const MySlider = (props) => {
   const settings = {
