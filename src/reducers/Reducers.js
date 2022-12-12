@@ -1,49 +1,21 @@
+function createGenreInitialState() {
+  return {
+    loading: true,
+    movies: [],
+    errorMessage: null,
+  }
+}
+
 // initialize state
-export const initialState = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
+export const initialState = createGenreInitialState();
+export const initComedy = createGenreInitialState();
+export const inithm = createGenreInitialState();
+export const initDocumentary = createGenreInitialState();
+export const initRomance = createGenreInitialState();
+export const initScifi = createGenreInitialState();
+export const initDetail = createGenreInitialState();
+export const initSearch = createGenreInitialState();
 
-export const initComedy = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-
-export const inithm = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-
-export const initDocumentary = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-export const initRomance = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-export const initScifi = {
-  loading: true,
-  movies: [],
-  errorMessage: null,
-};
-
-export const initDetail = {
-  loading: true,
-  details: [],
-  errorMessage: null,
-};
-
-export const initSearch = {
-  loading: true,
-  search: [],
-  errorMessage: null,
-};
 
 // Reducer updates state based on switch case. Movies_Request updates state for loading, Movies_Success updates movies aray with data, and
 // Movies_Failure updates errorMessage.
