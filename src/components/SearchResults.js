@@ -5,9 +5,9 @@ import placeholder from "../images/comingsoon.png";
 
 const SearchResults = ({ results }) => {
   // array of results from search
-  const movies = results.search;
+  const movies = results?.movies;
   const renderResults = () => {
-    return movies?.map((movie, index) => {
+    return results?.movies.length > 0 && movies?.map((movie, index) => {
       const poster =
         movie.poster_path === null
           ? placeholder
