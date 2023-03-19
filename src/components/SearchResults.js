@@ -1,17 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import placeholder from "../images/comingsoon.png";
+const renderResults = (movies) => {
 
-const SearchResults = ({ results }) => {
-  // array of results from search
-  const movies = results?.movies;
-  const renderResults = () => {
-    return results?.movies.length > 0 && movies?.map((movie, index) => {
-      const poster =
-        movie.poster_path === null
-          ? placeholder
-          : `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+  return (
+    movies?.length > 0 &&
+    movies?.filter(movie => movie?.poster_path)?.map((movie, index) => {
+      const poster = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
 
       return (
         <div className="results-movie" key={index}>
@@ -33,10 +28,14 @@ const SearchResults = ({ results }) => {
           </div>
         </div>
       );
-    });
-  };
+    })
+  );
+};
 
-  return <div className="results-grid">{renderResults()}</div>;
+const SearchResults = ({ results }) => {
+  const movies = results?.movies;
+
+  return <div className="results-grid">{renderResults(movies)}</div>;
 };
 
 export default SearchResults;

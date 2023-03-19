@@ -18,7 +18,7 @@ const Detail = (props) => {
   const [trailer, trailerDispatch] = useReducer(detailsReducer, initDetail);
 
   const releaseDate = currentMovie?.release_date
-  const formattedDate = dateFormat(releaseDate, "longDate",);
+  const formattedDate = dateFormat(releaseDate, "longDate");
 
 
   // use the passed in prop currentId to fetch the correct trailer
@@ -28,9 +28,7 @@ const Detail = (props) => {
         const response = await fetch(
           `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${process.env.REACT_APP_API_KEY}& language=en - US`
         );
-        console.log("🚀 ~ file: Moviedetails.js ~ line 28 ~ fetchTrailer ~ response", response)
         const json = await response.json();
-
         if (response.ok === true) {
           trailerDispatch({
             type: "SEARCH_DETAILS_SUCCESS",
@@ -87,12 +85,17 @@ const Detail = (props) => {
           right: "0",
           zIndex: "-1",
           display: "block",
-          backgroundImage: `url(${poster})`,
+          backgroundImage: `linear-gradient(
+            to left,
+            rgba(238, 52, 36, .5),
+            rgba(0, 0, 0, 1)
+          ),url(${poster})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           width: '100%',
           height: '100%',
-          filter: 'brightness(0.5)',
+          filter: 'brightness(0.8)',
+
         }}></div>
         <div className="after">
           {trailer?.loading && !trailer?.errorMessage ? (
@@ -118,7 +121,7 @@ const Detail = (props) => {
                 </div>
                 <div className="return-container">
                   <Link to="/" className="return">
-                    Return Home <span className="return-icon"><i class="fa fa-home"></i></span>
+                    Return Home <span className="return-icon"><i className="fa fa-home"></i></span>
                   </Link>
                 </div>
               </>
