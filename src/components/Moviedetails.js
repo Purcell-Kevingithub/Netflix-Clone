@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/App.css";
 import placeholder from "../images/comingsoon.png";
 import { detailsReducer, initDetail } from "../reducers/Reducers";
+import { fetchMovie } from "../utility/getMovie";
 
 
 
@@ -20,40 +21,49 @@ const Detail = (props) => {
   const releaseDate = currentMovie?.release_date
   const formattedDate = dateFormat(releaseDate, "longDate");
 
-
-  // use the passed in prop currentId to fetch the correct trailer
-  useEffect(() => {
-    async function fetchTrailer() {
-      try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${currentId}/videos?api_key=${process.env.REACT_APP_API_KEY}& language=en - US`
-        );
-        const json = await response.json();
-        if (response.ok === true) {
-          trailerDispatch({
-            type: "SEARCH_DETAILS_SUCCESS",
-            payload: [json.results[0]],
-          });
-        } else {
-          trailerDispatch({
-            type: "SEARCH_DETAILS_FAILURE",
-            error: "something went wrong",
-          });
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchTrailer();
-  }, [currentId]);
-
-  let poster =
+  const poster =
     currentMovie.poster_path === null
       ? placeholder
       : `https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`;
 
+  const beforeStyles = {
+    content: "",
+    position: "absolute",
+    left: "0",
+    right: "0",
+    zIndex: "-1",
+    display: "block",
+    backgroundImage: `linear-gradient(
+    to left,
+    rgba(238, 52, 36, .5),
+    rgba(0, 0, 0, 1)
+  ),url(${poster})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    width: '100%',
+    height: '100%',
+    filter: 'brightness(0.8)',
+  }
 
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const response = await fetchMovie(currentId)
+      const json = await response.json()
+      if (!response.ok === true) {
+        trailerDispatch({
+          type: "SEARCH_DETAILS_FAILURE",
+          error: "something went wrong",
+        });
+      }
+      trailerDispatch({
+        type: "SEARCH_DETAILS_SUCCESS",
+        payload: [json.results[0]],
+      });
+    }
+
+    fetchMovies()
+
+  }, [currentId]);
 
 
   const TrailersDisplay = () => {
@@ -78,25 +88,7 @@ const Detail = (props) => {
   const renderDetails = () => {
     return (
       <div className="content-wrapper">
-        <div className="before" style={{
-          content: "",
-          position: "absolute",
-          left: "0",
-          right: "0",
-          zIndex: "-1",
-          display: "block",
-          backgroundImage: `linear-gradient(
-            to left,
-            rgba(238, 52, 36, .5),
-            rgba(0, 0, 0, 1)
-          ),url(${poster})`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          width: '100%',
-          height: '100%',
-          filter: 'brightness(0.8)',
-
-        }}></div>
+        <div className="before" style={beforeStyles}></div>
         <div className="after">
           {trailer?.loading && !trailer?.errorMessage ? (
             <span>loading... </span>
@@ -131,7 +123,11 @@ const Detail = (props) => {
     );
   };
 
-  return renderDetails()
+  return (
+    <>
+      {renderDetails()}
+    </>
+  )
 }
 
 export default Detail
