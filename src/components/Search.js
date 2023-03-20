@@ -3,15 +3,8 @@ import { useHistory } from "react-router";
 
 const Search = (props) => {
   let history = useHistory();
-  const [searchValue, setSearchValue] = useState("Search Movies...");
-
-  function handleClick() {
-    // don't redirect to results if search form is empty.
-    if (searchValue.length === 0) {
-      return;
-    }
-    history.push("/searchresults");
-  }
+  const initalState = "Search Movies..."
+  const [searchValue, setSearchValue] = useState(initalState);
 
   const handleSearchInputChanges = (e) => {
     setSearchValue(e.target.value);
@@ -23,9 +16,12 @@ const Search = (props) => {
 
   const callSearchFunction = (e) => {
     e.preventDefault();
+    if (searchValue.length === 0 || searchValue === initalState) {
+      return;
+    }
     props.search(searchValue);
     resetInputField();
-    handleClick();
+    history.push("/searchresults");
   };
 
   return (
@@ -39,7 +35,7 @@ const Search = (props) => {
           type="text"
           required
         />
-        <button onClick={handleClick}>Search</button>
+        <button>Search</button>
       </form>
     </div>
   );
