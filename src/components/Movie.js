@@ -20,10 +20,8 @@ const Movie = ({ movie }) => {
         <img
           alt={`The movie titled: ${original_title}`}
           src={poster}
-          className="movie-image"
         />
       </Link>
-      <div></div>
     </div>
   );
 };
