@@ -78,8 +78,8 @@ const Genres = () => {
     fetch(DOCUMENTARY_POPULAR_URL)
       .then((response) => response.json())
       .then((jsonResponse) => {
-        const filterAdult = jsonResponse.results.filter((movie) => {
-          return !movie.original_title.toLowerCase().includes("porn");
+        const filterAdult = jsonResponse?.results?.filter((movie) => {
+          return movie;
         });
         documentaryDispatch({
           type: "SEARCH_MOVIES_SUCCESS",
