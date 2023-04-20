@@ -79,7 +79,7 @@ const Genres = () => {
       .then((response) => response.json())
       .then((jsonResponse) => {
         const filterAdult = jsonResponse?.results?.filter((movie) => {
-          return movie;
+          return !movie.original_title.toLowerCase().includes("porn");
         });
         documentaryDispatch({
           type: "SEARCH_MOVIES_SUCCESS",

@@ -1,11 +1,11 @@
 import React from "react";
+import { getYear } from '../utility/general'
+
 
 const Footer = () => {
-  function getYear() {
-    return new Date().getFullYear();
-  }
-
-  return <footer className="footer">&#169; {getYear()} Kevin Purcell</footer>;
-};
+  return (
+    <footer className="footer">&#169; {getYear()} Kevin Purcell</footer>
+  )
+}
 
 export default Footer;
