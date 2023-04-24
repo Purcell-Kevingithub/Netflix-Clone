@@ -5,33 +5,28 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  height: 15vh;
 }
 
 .netflix-container {
   height: 100%;
+  max-width: 30%;
+  display: flex;
 }
 
 .netflix-logo {
+  width: 100%;
   height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 250px;
+  object-fit: cover;
 }
 
 .search-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  max-width: 450px;
+  width: 100%;
 }
 
 .search {
-  position: relative;
-  height: 45px;
+  min-height: 45px;
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .search button {
@@ -39,12 +34,12 @@
   font-size: 15px;
   position: absolute;
   color: white;
-  border: 1px solid black;
-  width: 80px;
-  height: 100%;
+  border: 1px solid var(--primary-font);
+  min-width: 20%;
   background-color: var(--primary-color);
   cursor: pointer;
   border-radius: 5px;
+  padding: 10px 0;
 }
 
 .search button:hover {
@@ -60,25 +55,25 @@
 
 .search input {
   text-indent: 10px;
-  height: 100%;
-  width: 80%;
   font-size: 15px;
   border: 1px solid transparent;
   border-radius: 5px;
   font-family: var(--primary-font);
   margin-right: 10px;
+  min-width: 80%;
+  height: 100%;
+  padding: 10px 0;
 }
 
 .search input:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 1400px) {
-}
+@media only screen and (max-width: 1400px) {}
 
 @media only screen and (max-width: 1200px) {
   .search {
-    height: 40px;
+    /* min-height: 40px; */
   }
 
   .search button {
@@ -93,52 +88,37 @@
 
 /* --------------------------------MEDIUM ----------------------------------------------------------------- */
 @media only screen and (max-width: 1000px) {
+
   /* ----------------Search Component------------------ */
-  .search-container {
-    transform: translate(-25%, -50%);
-  }
+  .search-container {}
 }
 
-@media only screen and (max-width: 850px) {
-  /* ----------------Search Component------------------ */
-  .search-container {
-    transform: translate(-25%, -50%);
-    width: 50%;
-  }
-}
+@media only screen and (max-width: 850px) {}
 
 @media only screen and (max-width: 700px) {
+
   /* ---------------------Header Component-------------  */
   .App-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 30vh;
-    padding-bottom: 10px;
   }
 
   .netflix-container {
-    display: block;
+    max-width: 100%;
     width: 100%;
   }
 
+
   .netflix-logo {
-    height: 20vh;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 20px;
-    width: 100%;
+    max-height: 30vh;
   }
 
   .search-container {
-    position: static;
-    display: block;
-    transform: translate(-12%, 0);
-    width: 50%;
     padding-bottom: 10px;
     padding-top: 10px;
+    min-height: 25px;
   }
 
   .search-container input {

@@ -8,10 +8,7 @@ const Header = (props) => {
   return (
     <div className="App-header">
       <Link to="/" className="netflix-container">
-        <div
-          className="netflix-logo"
-          style={{ backgroundImage: `url(${netflix})` }}
-        ></div>
+        <img className="netflix-logo" alt="netflix logo" src={netflix} />
       </Link>
       <Search search={props.search} />
     </div>
